@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LAN3107 Unit 6 CA Practice 2</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: lavender;
+  color: #333;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.5;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='190'%3E%3Cpath d='M80 20 L74 32 L68 32 L66 75 L70 87 L77 92 L77 102 L83 102 L83 92 L90 87 L94 75 L92 32 L86 32 Z' fill='none' stroke='%23C4956A' stroke-width='1.3' opacity='0.5'/%3E%3Cpath d='M77 102 L83 102 L83 108 L77 108 Z' fill='%23C4956A' opacity='0.3'/%3E%3Cline x1='80' y1='108' x2='80' y2='118' stroke='%23C4956A' stroke-width='1.8' opacity='0.4'/%3E%3Cline x1='70' y1='118' x2='90' y2='118' stroke='%23C4956A' stroke-width='1.8' opacity='0.4'/%3E%3Ccircle cx='80' cy='25' r='2.5' fill='%23C4956A' opacity='0.3'/%3E%3C/svg%3E") repeat;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 10% 85%, rgba(247,231,206,0.4) 3px, transparent 4px),
+    radial-gradient(circle at 25% 70%, rgba(247,231,206,0.3) 5px, transparent 6px),
+    radial-gradient(circle at 45% 90%, rgba(247,231,206,0.35) 4px, transparent 5px),
+    radial-gradient(circle at 65% 60%, rgba(247,231,206,0.25) 7px, transparent 8px),
+    radial-gradient(circle at 80% 80%, rgba(247,231,206,0.35) 3px, transparent 4px),
+    radial-gradient(circle at 90% 50%, rgba(247,231,206,0.3) 6px, transparent 7px),
+    radial-gradient(circle at 15% 40%, rgba(247,231,206,0.25) 4px, transparent 5px),
+    radial-gradient(circle at 50% 30%, rgba(247,231,206,0.2) 8px, transparent 9px),
+    radial-gradient(circle at 35% 15%, rgba(247,231,206,0.25) 5px, transparent 6px),
+    radial-gradient(circle at 60% 5%, rgba(247,231,206,0.2) 4px, transparent 5px),
+    radial-gradient(circle at 5% 55%, rgba(247,231,206,0.25) 6px, transparent 7px),
+    radial-gradient(circle at 95% 35%, rgba(247,231,206,0.3) 4px, transparent 5px),
+    radial-gradient(circle at 40% 55%, rgba(247,231,206,0.15) 10px, transparent 11px),
+    radial-gradient(circle at 70% 75%, rgba(247,231,206,0.2) 5px, transparent 6px),
+    radial-gradient(circle at 20% 25%, rgba(247,231,206,0.15) 7px, transparent 8px);
+  animation: bubbles 18s ease-in-out infinite alternate;
+}
+
+@keyframes bubbles {
+  0% { transform: translateY(0); opacity: 0.5; }
+  100% { transform: translateY(-35px); opacity: 1; }
+}
+
+.banner {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+  animation: kenburns 10s ease-in-out infinite alternate;
+  transform-origin: center center;
+  clip-path: inset(0 0 16.67% 0);
+}
+
+@keyframes kenburns {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.12); }
+}
+
+@keyframes bannerBubbles {
+  0% { transform: translateY(0); opacity: 0.5; }
+  100% { transform: translateY(-20px); opacity: 1; }
+}
+
+.banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.page-header {
+  text-align: center;
+  padding: 20px 20px 0;
+  background: white;
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.page-header h1 {
+  font-size: 24px;
+  color: #4b0082;
+  margin-bottom: 4px;
+}
+
+.page-header p {
+  font-size: 16px;
+  color: #6a0dad;
+  margin-bottom: 4px;
+}
+
+.page-header .presented-by {
+  font-size: 14px;
+  color: #9370db;
+  font-style: italic;
+  margin-top: 6px;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.tabs {
+  display: flex;
+  gap: 0;
+  margin-bottom: 0;
+}
+
+.tab-btn {
+  padding: 14px 36px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  background: #d8bfd8;
+  color: #555;
+  border-radius: 10px 10px 0 0;
+  transition: background 0.2s, color 0.2s;
+}
+
+.tab-btn:hover {
+  background: #c9aec9;
+}
+
+.tab-btn.active {
+  background: white;
+  color: #6a0dad;
+}
+
+.tab-content {
+  display: none;
+  background: white;
+  padding: 30px;
+  border-radius: 0 10px 10px 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  line-height: 1.7;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+h1 {
+  font-size: 22px;
+  color: #4b0082;
+  margin-bottom: 6px;
+}
+
+h2 {
+  font-size: 18px;
+  color: #6a0dad;
+  margin: 20px 0 10px;
+}
+
+h3 {
+  font-size: 16px;
+  color: #8a2be2;
+  margin: 16px 0 8px;
+}
+
+.task-section {
+  margin-bottom: 30px;
+}
+
+.task-section ul {
+  padding-left: 20px;
+  margin: 8px 0;
+}
+
+.task-section li {
+  margin-bottom: 6px;
+}
+
+.task-box {
+  background: #f8f0ff;
+  border-left: 4px solid #9370db;
+  padding: 16px 20px;
+  margin: 12px 0;
+  border-radius: 0 8px 8px 0;
+}
+
+.task-box p { margin-bottom: 4px; }
+
+table.dialogue {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+}
+
+table.dialogue th {
+  background: #9370db;
+  color: white;
+  padding: 10px 14px;
+  text-align: left;
+  width: 50%;
+}
+
+table.dialogue td {
+  padding: 10px 14px;
+  vertical-align: top;
+  border-bottom: 1px solid #e6d8f0;
+}
+
+table.dialogue tr:nth-child(even) td {
+  background: #faf5ff;
+}
+
+table.dialogue td:first-child {
+  border-right: 1px solid #e6d8f0;
+}
+
+table.dialogue td:last-child {
+  color: #555;
+}
+
+table.dialogue tr.active-row td {
+  background: #e8d8f5 !important;
+}
+
+.utterance {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.btn-icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  background: #9370db;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+  margin-top: 2px;
+}
+
+.btn-icon:hover {
+  background: #7b5ec0;
+}
+
+.btn-icon.playing {
+  background: #e74c3c;
+}
+
+.btn-icon svg {
+  width: 12px;
+  height: 12px;
+  fill: currentColor;
+}
+
+.controls-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  padding: 10px 16px;
+  background: #f8f0ff;
+  border-radius: 8px;
+  border: 1px solid #e6d8f0;
+  flex-wrap: wrap;
+}
+
+.controls-bar label {
+  font-weight: 600;
+  color: #6a0dad;
+  font-size: 14px;
+}
+
+.controls-bar input[type="range"] {
+  flex: 1;
+  max-width: 160px;
+  accent-color: #9370db;
+}
+
+.controls-bar .speed-val {
+  font-weight: 700;
+  color: #4b0082;
+  min-width: 40px;
+  font-size: 14px;
+}
+
+.ctrl-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #9370db;
+  color: white;
+  transition: background 0.15s;
+}
+
+.ctrl-btn:hover {
+  background: #7b5ec0;
+}
+
+.ctrl-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.ctrl-btn svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+.separator {
+  width: 1px;
+  height: 28px;
+  background: #d8bfd8;
+  margin: 0 4px;
+}
+
+.word {
+  cursor: pointer;
+  border-bottom: 1px dotted rgba(147,112,219,0.3);
+  transition: background 0.15s, border-color 0.15s;
+  border-radius: 2px;
+  padding: 0 1px;
+}
+
+.word:hover {
+  background: rgba(147,112,219,0.12);
+  border-bottom-color: rgba(147,112,219,0.7);
+}
+
+.word.speaking {
+  background: rgba(147,112,219,0.2);
+  border-bottom-color: #9370db;
+  border-bottom-style: solid;
+}
+
+.section-label td {
+  background: #f0e8f8 !important;
+  padding: 8px 14px !important;
+  font-weight: 700;
+  font-size: 14px;
+  color: #4b0082;
+  border-bottom: 2px solid #d8bfd8;
+}
+</style>
+</head>
+<body>
+
+<div class="banner">
+  <img src="/Users/rebecca/Downloads/1.jpeg" alt="Banner">
+</div>
+
+<div class="page-header">
+  <h1>Essential Workplace Communication: Effective Oral Interaction (LAN3107)</h1>
+  <p>Unit 6 — CA Practice 2</p>
+  <p class="presented-by">Presented by Rebecca Tang</p>
+</div>
+
+<div class="container">
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab(0)">TAB 1 — Task Overview</button>
+    <button class="tab-btn" onclick="switchTab(1)">TAB 2 — Possible Response</button>
+  </div>
+
+  <div class="tab-content active" id="tab-0">
+
+    <div class="task-section">
+      <h2>Student A — Charlie Chan (Marketing Assistant)</h2>
+      <p>You are at a company event. Hold a conversation with your colleague, Parker Leung (Student B, a centre operations assistant). You should perform all items below:</p>
+
+      <ol style="padding-left:20px; margin:10px 0;">
+        <li>Greet your colleague and introduce yourself</li>
+        <li>
+          Make small talk on the following topics:
+          <ul>
+            <li>Your favourite local restaurants</li>
+            <li>
+              A project run by your department — <strong>Promoting mobile health clinics</strong>
+              <div class="task-box">
+                <p><strong>You may talk about:</strong></p>
+                <p>• what has been done so far</p>
+                <p>• plans for the coming months</p>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li>
+          Share your opinions on a new company policy and support your views with reasons
+          <div class="task-box">
+            <p><strong>Professional Development Policy:</strong> Employees now have access to free online courses and training workshops.</p>
+            <p><strong>You may talk about:</strong></p>
+            <p>• what you think or feel about the policy and why</p>
+            <p>• the potential benefits and drawbacks the policy may bring to the company and its employees</p>
+          </div>
+        </li>
+        <li>End the conversation politely</li>
+      </ol>
+    </div>
+
+    <hr style="border:none;border-top:2px solid #e6d8f0;margin:30px 0;">
+
+    <div class="task-section">
+      <h2>Student B — Parker Leung (Centre Operations Assistant)</h2>
+      <p>You are at a company event. Hold a conversation with your colleague, Charlie Chan (Student A, a marketing assistant). You should perform all items below:</p>
+
+      <ol style="padding-left:20px; margin:10px 0;">
+        <li>Greet your colleague and introduce yourself</li>
+        <li>
+          Make small talk on the following topics:
+          <ul>
+            <li>Your favourite local restaurants</li>
+            <li>
+              A project run by your department — <strong>Launching a new patient appointment scheduling system</strong>
+              <div class="task-box">
+                <p><strong>You may talk about:</strong></p>
+                <p>• what has been done so far</p>
+                <p>• plans for the coming months</p>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li>
+          Share your opinions on a new company policy and support your views with reasons
+          <div class="task-box">
+            <p><strong>Professional Development Policy:</strong> Employees now have access to free online courses and training workshops.</p>
+            <p><strong>You may talk about:</strong></p>
+            <p>• what you think or feel about the policy and why</p>
+            <p>• the potential benefits and drawbacks the policy may bring to the company and its employees</p>
+          </div>
+        </li>
+        <li>End the conversation politely</li>
+      </ol>
+    </div>
+
+  </div>
+
+  <div class="tab-content" id="tab-1">
+
+    <h1>Possible Response</h1>
+    <p style="color:#666; margin-bottom:16px;">Suggested conversation between Student A (Charlie) and Student B (Parker)</p>
+
+    <div class="controls-bar">
+      <label>Speed:</label>
+      <input type="range" id="speedSlider" min="0.25" max="2.0" step="0.25" value="1.0">
+      <span class="speed-val" id="speedDisplay">1.0x</span>
+      <div class="separator"></div>
+      <button class="ctrl-btn" id="playAllBtn" onclick="playAll()"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg> Play All</button>
+      <button class="ctrl-btn" id="pauseAllBtn" onclick="pauseAll()" disabled><svg viewBox="0 0 24 24"><rect x="5" y="4" width="5" height="16"/><rect x="14" y="4" width="5" height="16"/></svg> Pause</button>
+      <button class="ctrl-btn" id="stopAllBtn" onclick="stopAll()" disabled><svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14"/></svg> Stop</button>
+    </div>
+
+    <table class="dialogue">
+      <thead>
+        <tr><th>Student A — Charlie Chan</th><th>Student B — Parker Leung</th></tr>
+      </thead>
+      <tbody id="dialogueBody">
+        <tr class="section-label"><td colspan="2">1. Greet your colleague and introduce yourself</td></tr>
+        <tr>
+          <td><div class="utterance"><button class="btn-icon" onclick="playSingle('audio/c01.mp3', this)" data-src="audio/c01.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button><span>'Hi. I don't think we've met yet. I'm Charlie Chan and I'm from the marketing department. It's nice to meet you.'</span></div></td>
+          <td><div class="utterance"><button class="btn-icon" onclick="playSingle('audio/p01.mp3', this)" data-src="audio/p01.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button><span>'Hi Charlie. I'm Parker Leung from the centre operations department. It's nice to meet you too. How are you enjoying the event so far?'</span></div></td>
+        </tr>
+        <tr class="section-label"><td colspan="2">2. Make small talk on the following topics:  a. Your favourite local restaurants</td></tr>
+        <tr>
+          <td><div class="utterance"><button class="btn-icon" onclick="playSingle('audio/c02.mp3', this)" data-src="audio/c02.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button><span>'I'm having a good time, thanks. It's always nice to catch up with colleagues from other departments. The food here at the event is pretty good, isn't it? Speaking of food, do you have any favourite local restaurants you like to visit?'</span></div></td>
+          <td><div class="utterance"><button class="btn-icon" onclick="playSingle('audio/p02.mp3', this)" data-src="audio/p02.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button><span>'Yes, I do! I really enjoy going to "The Green Bowl" near our office. Their vegetarian dishes are amazing. How about you?'</span></div></td>
+        </tr>
+        <tr>
+          <td><div class="utterance"><button class="btn-icon" onclick="playSingle('audio/c03.mp3', this)" data-src="audio/c03.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button><span>'Oh, I love "Dim Sum Delight" in Central. Their steamed dumplings are the best I've ever had. Maybe we could go together sometime.'</span></div></td>
+          <td><div class="utterance"><button class="btn-icon" onclick="playSingle('audio/p03.mp3', this)" data-src="audio/p03.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button><span>'That sounds great! I've heard good things about that place but haven't tried it yet. So, what's new in your department these days?'</span></div></td>
+        </tr>
+        <tr class="section-label"><td colspan="2">b. A project run by your department — Project: Promoting mobile health clinics</td></tr>
+        <tr>
+          <td><div class="utterance"><button class="btn-icon" onclick="playSingle('audio/c04.mp3', this)" data-src="audio/c04.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button><span>'Oh, we've been busy promoting our mobile health clinics. We've launched a social media campaign and partnered with local community groups to spread the word. The response has been encouraging.'</span></div></td>
+          <td><div class="utterance"><button class="btn-icon" onclick="playSingle('audio/p04.mp3', this)" data-src="audio/p04.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button><span>'That's impressive! What are your plans for the mobile clinics in the next few months?'</span></div></td>
+        </tr>
+        <tr>
+          <td><div class="utterance"><button class="btn-icon" onclick="playSingle('audio/c05.mp3', this)" data-src="audio/c05.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button><span>'We're planning to expand the clinics to more districts and introduce new health services. We hope to reach more people who need medical care.'</span></div></td>
+          <td><div class="utterance"><button class="btn-icon" onclick="playSingle('audio/p05.mp3', this)" data-src="audio/p05.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button><span>'That's a great initiative. I think it will really benefit the community.'</span></div></td>
+        </tr>
+        <tr>
+          <td><div class="utterance"><button class="btn-icon" onclick="playSingle('audio/c06.mp3', this)" data-src="audio/c06.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button><span>'So how about you? Busy with new projects, too?'</span></div></td>
+          <td><div class="utterance"><button class="btn-icon" onclick="playSingle('audio/p06.mp3', this)" data-src="audio/p06.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button><span>'We're currently working on launching a new patient appointment scheduling system. It's been a big project for us.'</span></div></td>
+        </tr>
+        <tr>
+          <td><div class="utterance"><button class="btn-icon" onclick="playSingle('audio/c07.mp3', this)" data-src="audio/c07.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button><span>'Oh, that must be a big task! I can imagine how much planning and coordination goes into setting up a new system like that. How has the process been so far?'</span></div></td>
+          <td><div class="utterance"><button class="btn-icon" onclick="playSingle('audio/p07.mp3', this)" data-src="audio/p07.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button><span>'We've completed the initial design and started testing the system with a small group of patients. The feedback has been positive so far. We plan to roll it out to all our centres next quarter. We're also preparing training materials for staff to make the transition smooth.'</span></div></td>
+        </tr>
+        <tr class="section-label"><td colspan="2">3. Share your opinions on a new company policy and support your views with reasons</td></tr>
+        <tr>
+          <td><div class="utterance"><button class="btn-icon" onclick="playSingle('audio/c08.mp3', this)" data-src="audio/c08.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button><span>'Sounds like a lot of work, but very rewarding. Speaking of new things, what do you think about the new professional development policy our company introduced?'</span></div></td>
+          <td><div class="utterance"><button class="btn-icon" onclick="playSingle('audio/p08.mp3', this)" data-src="audio/p08.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button><span>'I think it's a fantastic idea. Offering free online courses and training workshops shows the company cares about our growth.'</span></div></td>
+        </tr>
+        <tr>
+          <td><div class="utterance"><button class="btn-icon" onclick="playSingle('audio/c09.mp3', this)" data-src="audio/c09.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button><span>'Definitely. It's a good opportunity for us to learn new skills. I'm planning to take a course on digital marketing.'</span></div></td>
+          <td><div class="utterance"><button class="btn-icon" onclick="playSingle('audio/p09.mp3', this)" data-src="audio/p09.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button><span>'That would be perfect for your role. Do you see any drawbacks to the new policy?'</span></div></td>
+        </tr>
+        <tr>
+          <td><div class="utterance"><button class="btn-icon" onclick="playSingle('audio/c10.mp3', this)" data-src="audio/c10.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button><span>'One concern is that some employees might feel pressured to take courses even if they're already busy. It's important to balance work and learning.'</span></div></td>
+          <td><div class="utterance"><button class="btn-icon" onclick="playSingle('audio/p10.mp3', this)" data-src="audio/p10.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button><span>'True, time management could be a challenge. But overall, I think the benefits outweigh the drawbacks. It can help us stay competitive.'</span></div></td>
+        </tr>
+        <tr>
+          <td><div class="utterance"><button class="btn-icon" onclick="playSingle('audio/c11.mp3', this)" data-src="audio/c11.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button><span>'Absolutely. It also encourages a culture of continuous improvement, which is good for both employees and the company.'</span></div></td>
+          <td><div class="utterance"><button class="btn-icon" onclick="playSingle('audio/p11.mp3', this)" data-src="audio/p11.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button><span>'I agree! It could lead to more collaboration and innovation within the company and I'm excited to see how things develop over the next few months.'</span></div></td>
+        </tr>
+        <tr>
+          <td><div class="utterance"><button class="btn-icon" onclick="playSingle('audio/c12.mp3', this)" data-src="audio/c12.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button><span>'Well, Parker, it's been great chatting with you. I've enjoyed learning more about your department and your thoughts on the new policy.'</span></div></td>
+          <td><div class="utterance"><button class="btn-icon" onclick="playSingle('audio/p12.mp3', this)" data-src="audio/p12.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button><span>'Likewise, Charlie. It's always nice to exchange ideas and catch up. Let's keep in touch about those restaurant plans!'</span></div></td>
+        </tr>
+        <tr class="section-label"><td colspan="2">4. End the conversation politely</td></tr>
+        <tr>
+          <td><div class="utterance"><button class="btn-icon" onclick="playSingle('audio/c13.mp3', this)" data-src="audio/c13.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button><span>'Absolutely! Let's arrange a lunch soon. Enjoy the rest of the event.'</span></div></td>
+          <td><div class="utterance"><button class="btn-icon" onclick="playSingle('audio/p13.mp3', this)" data-src="audio/p13.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button><span>'You too, Charlie. Take care and see you at the office!'</span></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
+
+<script>
+let currentAudio = null;
+let currentBtn = null;
+let playlist = [];
+let playlistIdx = 0;
+let isPlayingAll = false;
+
+function switchTab(index) {
+  stopAll();
+  const contents = document.querySelectorAll('.tab-content');
+  const buttons = document.querySelectorAll('.tab-btn');
+  contents.forEach(c => c.classList.remove('active'));
+  buttons.forEach(b => b.classList.remove('active'));
+  contents[index].classList.add('active');
+  buttons[index].classList.add('active');
+}
+
+function getSpeed() {
+  return parseFloat(document.getElementById('speedSlider').value);
+}
+
+document.getElementById('speedSlider').addEventListener('input', function() {
+  document.getElementById('speedDisplay').textContent = this.value + 'x';
+  if (currentAudio && !currentAudio.paused) {
+    currentAudio.playbackRate = getSpeed();
+  }
+});
+
+function resetBtn(btn) {
+  if (!btn) return;
+  btn.classList.remove('playing');
+  btn.innerHTML = '<svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>';
+}
+
+function setBtnPause(btn) {
+  btn.classList.add('playing');
+  btn.innerHTML = '<svg viewBox="0 0 24 24"><rect x="7" y="5" width="4" height="14"/><rect x="13" y="5" width="4" height="14"/></svg>';
+}
+
+function highlightRow(idx) {
+  const rows = document.querySelectorAll('#dialogueBody tr');
+  rows.forEach(r => r.classList.remove('active-row'));
+  if (idx >= 0 && idx < rows.length) {
+    rows[idx].classList.add('active-row');
+  }
+}
+
+function clearHighlight() {
+  document.querySelectorAll('#dialogueBody tr').forEach(r => r.classList.remove('active-row'));
+}
+
+function playSingle(src, btn) {
+  if (isPlayingAll) stopAll();
+
+  if (currentAudio && !currentAudio.paused) {
+    currentAudio.pause();
+    if (currentBtn && currentBtn !== btn) resetBtn(currentBtn);
+    if (currentBtn === btn) {
+      currentAudio = null;
+      currentBtn = null;
+      return;
+    }
+  }
+
+  currentAudio = new Audio(src);
+  currentAudio.playbackRate = getSpeed();
+  currentBtn = btn;
+  setBtnPause(btn);
+  currentAudio.play();
+
+  currentAudio.addEventListener('ended', function() {
+    resetBtn(btn);
+    currentAudio = null;
+    currentBtn = null;
+  });
+}
+
+function playAll() {
+  if (isPlayingAll) return;
+  isPlayingAll = true;
+  document.getElementById('playAllBtn').disabled = true;
+  document.getElementById('pauseAllBtn').disabled = false;
+  document.getElementById('stopAllBtn').disabled = false;
+
+  if (currentAudio && !currentAudio.paused) {
+    currentAudio.pause();
+    if (currentBtn) resetBtn(currentBtn);
+  }
+
+  playlist = [];
+  const btns = document.querySelectorAll('#dialogueBody .btn-icon');
+  btns.forEach(b => playlist.push(b.getAttribute('data-src')));
+
+  playlistIdx = 0;
+  playNext();
+}
+
+function playNext() {
+  if (!isPlayingAll || playlistIdx >= playlist.length) {
+    stopAll();
+    return;
+  }
+
+  const src = playlist[playlistIdx];
+  const rows = document.querySelectorAll('#dialogueBody tr');
+  const rowIdx = Math.floor(playlistIdx / 2);
+  highlightRow(rowIdx);
+
+  if (currentAudio) {
+    currentAudio.pause();
+    if (currentBtn) resetBtn(currentBtn);
+  }
+
+  currentAudio = new Audio(src);
+  currentAudio.playbackRate = getSpeed();
+  currentBtn = null;
+  currentAudio.play();
+
+  currentAudio.addEventListener('ended', function() {
+    playlistIdx++;
+    if (isPlayingAll && playlistIdx < playlist.length) {
+      playNext();
+    } else {
+      stopAll();
+    }
+  });
+}
+
+function pauseAll() {
+  if (currentAudio && !currentAudio.paused) {
+    currentAudio.pause();
+  }
+  document.getElementById('pauseAllBtn').disabled = true;
+  document.getElementById('playAllBtn').disabled = false;
+  document.getElementById('playAllBtn').innerHTML = '<svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg> Resume';
+}
+
+function stopAll() {
+  isPlayingAll = false;
+  if (currentAudio) {
+    currentAudio.pause();
+    currentAudio = null;
+  }
+  if (currentBtn) {
+    resetBtn(currentBtn);
+    currentBtn = null;
+  }
+  clearHighlight();
+  document.getElementById('playAllBtn').disabled = false;
+  document.getElementById('playAllBtn').innerHTML = '<svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg> Play All';
+  document.getElementById('pauseAllBtn').disabled = true;
+  document.getElementById('stopAllBtn').disabled = true;
+}
+
+// Word pronunciation
+let synth = window.speechSynthesis;
+let currentWordEl = null;
+
+function wrapWordsInEl(el) {
+  const text = el.textContent;
+  const words = text.split(/(\s+)/);
+  el.innerHTML = '';
+  words.forEach(w => {
+    if (w.trim() === '') {
+      el.appendChild(document.createTextNode(w));
+    } else {
+      const wordSpan = document.createElement('span');
+      wordSpan.className = 'word';
+      wordSpan.textContent = w;
+      wordSpan.addEventListener('click', function(e) {
+        e.stopPropagation();
+        speakWord(w.replace(/[^a-zA-Z'-]/g, ''), this);
+      });
+      el.appendChild(wordSpan);
+    }
+  });
+}
+
+function initWordClick() {
+  // Tab 2 — dialogue utterances
+  document.querySelectorAll('#dialogueBody .utterance span').forEach(wrapWordsInEl);
+  // Tab 1 — task text
+  document.querySelectorAll('#tab-0 p, #tab-0 li, #tab-0 .task-box p, #tab-0 .task-box li')
+    .forEach(el => {
+      if (el.querySelector('.word')) return;
+      const children = el.childNodes;
+      let hasOnlyText = true;
+      children.forEach(c => {
+        if (c.nodeType === 1 && !['strong', 'b', 'i', 'em', 'span'].includes(c.tagName.toLowerCase())) {
+          hasOnlyText = false;
+        }
+      });
+      if (hasOnlyText) wrapWordsInEl(el);
+    });
+}
+
+function speakWord(word, el) {
+  if (!word) return;
+  if (synth.speaking) {
+    synth.cancel();
+    if (currentWordEl) {
+      currentWordEl.classList.remove('speaking');
+    }
+    if (currentWordEl === el) {
+      currentWordEl = null;
+      return;
+    }
+  }
+  if (currentWordEl) {
+    currentWordEl.classList.remove('speaking');
+  }
+  el.classList.add('speaking');
+  currentWordEl = el;
+  const utter = new SpeechSynthesisUtterance(word);
+  utter.rate = 0.85;
+  utter.pitch = 1;
+  const voices = synth.getVoices();
+  const ukVoice = voices.find(v => v.lang.startsWith('en-GB'));
+  if (ukVoice) utter.voice = ukVoice;
+  utter.onend = function() {
+    el.classList.remove('speaking');
+    currentWordEl = null;
+  };
+  utter.onerror = function() {
+    el.classList.remove('speaking');
+    currentWordEl = null;
+  };
+  synth.speak(utter);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  if (synth.getVoices().length) {
+    initWordClick();
+  } else {
+    synth.addEventListener('voiceschanged', initWordClick, { once: true });
+  }
+});
+</script>
+
+</body>
+</html>
