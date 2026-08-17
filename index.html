@@ -206,6 +206,53 @@ h3 {
 
 .task-box p { margin-bottom: 4px; }
 
+.task-label {
+  font-weight: 700;
+  color: #6a0dad;
+  margin-bottom: 4px;
+}
+
+.task-list-box {
+  border: 1px solid #d8bfd8;
+  border-radius: 8px;
+  padding: 18px 24px;
+  margin: 12px 0;
+  background: #fcfaff;
+}
+
+.task-list-box ol {
+  padding-left: 22px;
+  margin: 6px 0;
+}
+
+.task-list-box li {
+  margin-bottom: 8px;
+}
+
+.task-list-ul {
+  list-style: disc;
+  padding-left: 28px;
+  margin: 6px 0;
+}
+
+.task-sub {
+  font-style: italic;
+  color: #555;
+  margin: 10px 0 2px 24px;
+}
+
+.task-sub-list {
+  list-style: disc;
+  font-style: italic;
+  color: #555;
+  padding-left: 52px;
+  margin: 4px 0 8px;
+}
+
+.task-sub-list li {
+  margin-bottom: 3px;
+}
+
 table.dialogue {
   width: 100%;
   border-collapse: collapse;
@@ -217,8 +264,10 @@ table.dialogue th {
   color: white;
   padding: 10px 14px;
   text-align: left;
-  width: 50%;
 }
+table.dialogue th:nth-child(1),
+table.dialogue th:nth-child(2) { width: 34%; }
+table.dialogue th:nth-child(3) { width: 32%; }
 
 table.dialogue td {
   padding: 10px 14px;
@@ -230,12 +279,9 @@ table.dialogue tr:nth-child(even) td {
   background: #faf5ff;
 }
 
-table.dialogue td:first-child {
+table.dialogue td:first-child,
+table.dialogue td:nth-child(2) {
   border-right: 1px solid #e6d8f0;
-}
-
-table.dialogue td:last-child {
-  color: #555;
 }
 
 table.dialogue tr.active-row td {
@@ -374,6 +420,79 @@ table.dialogue tr.active-row td {
   border-bottom: 2px solid #d8bfd8;
 }
 
+.c-fn {
+  font-size: 12px;
+  line-height: 1.6;
+  vertical-align: top;
+  background: #faf7ff;
+  color: #555;
+}
+
+.c-fn .fn-label {
+  margin-bottom: 6px;
+}
+
+.fn-label {
+  font-style: italic;
+  color: #5573b8;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.lang-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 6px;
+}
+
+.exp-item {
+  display: inline-block;
+  border-radius: 10px;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  margin: 0;
+}
+.exp-item.c { background: #fef3c7; color: #92400e; border: 1px solid #fcd34d; }
+.exp-item.m { background: #dbeafe; color: #1e40af; border: 1px solid #93c5fd; }
+.exp-item.h { background: #dcfce7; color: #166534; border: 1px solid #86efac; }
+.exp-item.t { background: #ccfbf1; color: #115e59; border: 1px solid #5eead4; }
+.exp-item.s { background: #f3e8ff; color: #6b21a8; border: 1px solid #d8b4fe; }
+.exp-item.o { background: #ffedd5; color: #9a3412; border: 1px solid #fdba74; }
+
+.lang-hl {
+  cursor: help;
+  padding: 0 2px;
+  border-radius: 3px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.lang-hl.c { background: #fef3c7; color: #92400e; border-bottom: 2px solid #f59e0b; }
+.lang-hl.m { background: #dbeafe; color: #1e40af; border-bottom: 2px solid #3b82f6; }
+.lang-hl.h { background: #dcfce7; color: #166534; border-bottom: 2px solid #22c55e; }
+.lang-hl.t { background: #ccfbf1; color: #115e59; border-bottom: 2px solid #14b8a6; }
+.lang-hl.s { background: #f3e8ff; color: #6b21a8; border-bottom: 2px solid #a855f7; }
+.lang-hl.o { background: #ffedd5; color: #9a3412; border-bottom: 2px solid #f97316; }
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 14px 0;
+  align-items: center;
+}
+.legend .lbl { font-size: 13px; font-weight: 700; color: #4b0082; margin-right: 4px; }
+.legend .chip { font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 10px; }
+.chip.c { background: #fef3c7; color: #92400e; border: 1px solid #fcd34d; }
+.chip.m { background: #dbeafe; color: #1e40af; border: 1px solid #93c5fd; }
+.chip.h { background: #dcfce7; color: #166534; border: 1px solid #86efac; }
+.chip.t { background: #ccfbf1; color: #115e59; border: 1px solid #5eead4; }
+.chip.s { background: #f3e8ff; color: #6b21a8; border: 1px solid #d8b4fe; }
+.chip.o { background: #ffedd5; color: #9a3412; border: 1px solid #fdba74; }
+
 .cn-translation {
   display: none;
   margin-top: 6px;
@@ -467,71 +586,75 @@ table.dialogue tr.active-row td {
   <div class="tab-content active" id="tab-0">
 
     <div class="task-section">
-      <h2 data-cn="学生A — 陈查理（市场推广助理）">Student A — Charlie Chan (Marketing Assistant)</h2>
-      <p data-cn="你在公司活动中。与你的同事梁柏基（学生B，中心运营助理）进行对话。你需要完成以下所有项目：">You are at a company event. Hold a conversation with your colleague, Parker Leung (Student B, a centre operations assistant). You should perform all items below:</p>
+      <h2 data-cn="学生A">Student A</h2>
+      <p class="task-label" data-cn="任务">Task</p>
+      <p data-cn="你是陈查理，HealthFirst Medical 的市场推广助理。你在公司活动中。与你的同事梁柏基（学生B，中心运营助理）进行对话。你需要完成以下所有项目：">You are Charlie Chan, a marketing assistant at HealthFirst Medical. You are at a company event. Hold a conversation with your colleague, Parker Leung (Student B, a centre operations assistant). You should perform <strong>all</strong> items below:</p>
 
-      <ol style="padding-left:20px; margin:10px 0;">
-        <li data-cn="问候你的同事并介绍自己">Greet your colleague and introduce yourself</li>
-        <li>
-          <span data-cn="就以下话题进行闲聊：">Make small talk on the following topics:</span>
-          <ul>
-            <li data-cn="你最喜欢的本地餐厅">Your favourite local restaurants</li>
-            <li>
-              <span data-cn="你部门负责的项目 — ">A project run by your department — </span><strong>Promoting mobile health clinics</strong>
-              <div class="task-box">
-                <p data-cn="你可以谈论："><strong>You may talk about:</strong></p>
-                <p data-cn="• 迄今为止已完成的工作">• what has been done so far</p>
-                <p data-cn="• 未来几个月的计划">• plans for the coming months</p>
-              </div>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <span data-cn="分享你对新公司政策的看法，并用理由支持你的观点">Share your opinions on a new company policy and support your views with reasons</span>
-          <div class="task-box">
-            <p data-cn="专业发展政策：员工现在可以免费参加在线课程和培训工作坊。"><strong>Professional Development Policy:</strong> Employees now have access to free online courses and training workshops.</p>
-            <p data-cn="你可以谈论："><strong>You may talk about:</strong></p>
-            <p data-cn="• 你对政策的看法或感受及原因">• what you think or feel about the policy and why</p>
-            <p data-cn="• 政策可能给公司及员工带来的潜在好处和坏处">• the potential benefits and drawbacks the policy may bring to the company and its employees</p>
-          </div>
-        </li>
-        <li data-cn="礼貌地结束对话">End the conversation politely</li>
-      </ol>
+      <div class="task-list-box">
+        <ol>
+          <li data-cn="问候你的同事并介绍自己">Greet your colleague and introduce yourself</li>
+          <li>
+            <span data-cn="就以下话题进行闲聊：">Make small talk on the following topics:</span>
+            <ul class="task-list-ul">
+              <li data-cn="你最喜欢的本地餐厅">Your favourite local restaurants</li>
+              <li data-cn="你部门负责的项目">A project run by your department</li>
+            </ul>
+            <p class="task-sub" data-cn="项目：推广流动医疗诊所">Project: Promoting mobile health clinics</p>
+            <p class="task-sub" data-cn="你可以谈论：">You may talk about:</p>
+            <ul class="task-sub-list">
+              <li data-cn="迄今为止已完成的工作">what has been done so far</li>
+              <li data-cn="未来几个月的计划">plans for the coming months</li>
+            </ul>
+          </li>
+          <li>
+            <span data-cn="分享你对新公司政策的看法，并用理由支持你的观点">Share your opinions on a new company policy and support your views with reasons</span>
+            <p class="task-sub" data-cn="你的公司刚刚推行了一项专业发展政策。员工现在可以免费参加在线课程和培训工作坊。">Your company has just introduced a professional development policy. Employees now have access to free online courses and training workshops.</p>
+            <p class="task-sub" data-cn="你可以谈论：">You may talk about:</p>
+            <ul class="task-sub-list">
+              <li data-cn="你对政策的看法或感受及原因">what you think or feel about the policy and why</li>
+              <li data-cn="政策可能给公司及员工带来的潜在好处和坏处">the potential benefits and drawbacks the policy may bring to the company and its employees</li>
+            </ul>
+          </li>
+          <li data-cn="礼貌地结束对话">End the conversation politely</li>
+        </ol>
+      </div>
     </div>
 
     <hr style="border:none;border-top:2px solid #e6d8f0;margin:30px 0;">
 
     <div class="task-section">
-      <h2 data-cn="学生B — 梁柏基（中心运营助理）">Student B — Parker Leung (Centre Operations Assistant)</h2>
-      <p data-cn="你在公司活动中。与你的同事陈查理（学生A，市场推广助理）进行对话。你需要完成以下所有项目：">You are at a company event. Hold a conversation with your colleague, Charlie Chan (Student A, a marketing assistant). You should perform all items below:</p>
+      <h2 data-cn="学生B">Student B</h2>
+      <p class="task-label" data-cn="任务">Task</p>
+      <p data-cn="你是梁柏基，HealthFirst Medical 的中心运营助理。你在公司活动中。与你的同事陈查理（学生A，市场推广助理）进行对话。你需要完成以下所有项目：">You are Parker Leung, a centre operations assistant at HealthFirst Medical. You are at a company event. Hold a conversation with your colleague, Charlie Chan (Student A, a marketing assistant). You should perform <strong>all</strong> items below:</p>
 
-      <ol style="padding-left:20px; margin:10px 0;">
-        <li data-cn="问候你的同事并介绍自己">Greet your colleague and introduce yourself</li>
-        <li>
-          <span data-cn="就以下话题进行闲聊：">Make small talk on the following topics:</span>
-          <ul>
-            <li data-cn="你最喜欢的本地餐厅">Your favourite local restaurants</li>
-            <li>
-              <span data-cn="你部门负责的项目 — ">A project run by your department — </span><strong>Launching a new patient appointment scheduling system</strong>
-              <div class="task-box">
-                <p data-cn="你可以谈论："><strong>You may talk about:</strong></p>
-                <p data-cn="• 迄今为止已完成的工作">• what has been done so far</p>
-                <p data-cn="• 未来几个月的计划">• plans for the coming months</p>
-              </div>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <span data-cn="分享你对新公司政策的看法，并用理由支持你的观点">Share your opinions on a new company policy and support your views with reasons</span>
-          <div class="task-box">
-            <p data-cn="专业发展政策：员工现在可以免费参加在线课程和培训工作坊。"><strong>Professional Development Policy:</strong> Employees now have access to free online courses and training workshops.</p>
-            <p data-cn="你可以谈论："><strong>You may talk about:</strong></p>
-            <p data-cn="• 你对政策的看法或感受及原因">• what you think or feel about the policy and why</p>
-            <p data-cn="• 政策可能给公司及员工带来的潜在好处和坏处">• the potential benefits and drawbacks the policy may bring to the company and its employees</p>
-          </div>
-        </li>
-        <li data-cn="礼貌地结束对话">End the conversation politely</li>
-      </ol>
+      <div class="task-list-box">
+        <ol>
+          <li data-cn="问候你的同事并介绍自己">Greet your colleague and introduce yourself</li>
+          <li>
+            <span data-cn="就以下话题进行闲聊：">Make small talk on the following topics:</span>
+            <ul class="task-list-ul">
+              <li data-cn="你最喜欢的本地餐厅">Your favourite local restaurants</li>
+              <li data-cn="你部门负责的项目">A project run by your department</li>
+            </ul>
+            <p class="task-sub" data-cn="项目：推行新的患者预约排期系统">Project: Launching a new patient appointment scheduling system</p>
+            <p class="task-sub" data-cn="你可以谈论：">You may talk about:</p>
+            <ul class="task-sub-list">
+              <li data-cn="迄今为止已完成的工作">what has been done so far</li>
+              <li data-cn="未来几个月的计划">plans for the coming months</li>
+            </ul>
+          </li>
+          <li>
+            <span data-cn="分享你对新公司政策的看法，并用理由支持你的观点">Share your opinions on a new company policy and support your views with reasons</span>
+            <p class="task-sub" data-cn="你的公司刚刚推行了一项专业发展政策。员工现在可以免费参加在线课程和培训工作坊。">Your company has just introduced a professional development policy. Employees now have access to free online courses and training workshops.</p>
+            <p class="task-sub" data-cn="你可以谈论：">You may talk about:</p>
+            <ul class="task-sub-list">
+              <li data-cn="你对政策的看法或感受及原因">what you think or feel about the policy and why</li>
+              <li data-cn="政策可能给公司及员工带来的潜在好处和坏处">the potential benefits and drawbacks the policy may bring to the company and its employees</li>
+            </ul>
+          </li>
+          <li data-cn="礼貌地结束对话">End the conversation politely</li>
+        </ol>
+      </div>
     </div>
 
   </div>
@@ -539,7 +662,17 @@ table.dialogue tr.active-row td {
   <div class="tab-content" id="tab-1">
 
     <h1 data-cn="参考回答">Possible Response</h1>
-    <p style="color:#666; margin-bottom:16px;" data-cn="学生A（陈查理）与学生B（梁柏基）的建议对话">Suggested conversation between Student A (Charlie) and Student B (Parker)</p>
+    <p style="color:#666; margin-bottom:16px;" data-cn="学生A（陈查理）与学生B（梁柏基）的建议对话。右栏「斜体蓝字」列明每轮对话的沟通功能；「彩色标签」指出并解释语言的使用（回应词、正面评价、跟进问题等）。">Suggested conversation between Student A (Charlie) and Student B (Parker). The right-hand column shows the <strong>communicative functions</strong> of each exchange (in <em>italic blue</em>) and <strong>coloured tags</strong> that point out the words/phrases used (echo words, positive comments, follow-up questions, etc.).</p>
+    <div class="legend">
+      <span class="lbl" data-cn="高亮颜色图例">Highlight colour key</span>
+      <span class="chip c">Contraction</span>
+      <span class="chip m">Modal verb + bare infinitive</span>
+      <span class="chip h">Cohesive device</span>
+      <span class="chip t">Tense (present perfect / continuous / future)</span>
+      <span class="chip s">Small talk &amp; follow-up questions</span>
+      <span class="chip o">Opinions &amp; reasons</span>
+    </div>
+    <p style="color:#666; margin:0 0 12px;" data-cn="将鼠标移到对话中任何高亮项目上，即可查看其解释。">Hover over any <mark class="lang-hl m">highlighted item</mark> in the script to see its explanation.</p>
 
     <div class="controls-bar">
       <label>Speed:</label>
@@ -553,65 +686,318 @@ table.dialogue tr.active-row td {
 
     <table class="dialogue">
       <thead>
-        <tr><th>Student A — Charlie Chan</th><th>Student B — Parker Leung</th></tr>
+        <tr><th>Student A — Charlie Chan</th><th>Student B — Parker Leung</th><th>Communicative Functions &amp; Language Explanations</th></tr>
       </thead>
       <tbody id="dialogueBody">
-        <tr class="section-label"><td colspan="2" data-cn="1. 问候你的同事并介绍自己">1. Greet your colleague and introduce yourself</td></tr>
+        <tr class="section-label"><td colspan="3" data-cn="1. 问候你的同事并介绍自己">1. Greet your colleague and introduce yourself</td></tr>
         <tr>
-          <td><div class="utterance"><button class="btn-icon" onclick="playSingle('audio/c01.mp3', this)" data-src="audio/c01.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button><span data-cn="嗨，我想我们还没见过面。我是陈查理，来自市场推广部。很高兴认识你。">'Hi. I don't think we've met yet. I'm Charlie Chan and I'm from the marketing department. It's nice to meet you.'</span></div></td>
-          <td><div class="utterance"><button class="btn-icon" onclick="playSingle('audio/p01.mp3', this)" data-src="audio/p01.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button><span data-cn="嗨，查理。我是梁柏基，来自中心运营部。我也很高兴认识你。你觉得这次活动怎么样？">'Hi Charlie. I'm Parker Leung from the centre operations department. It's nice to meet you too. How are you enjoying the event so far?'</span></div></td>
+          <td>
+            <div class="utterance">
+              <button class="btn-icon" onclick="playSingle('audio/c01.mp3', this)" data-src="audio/c01.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button>
+              <div class="ut-text" data-cn="嗨，我想我们还没见过面。我是陈查理，来自市场推广部。很高兴认识你。">'Hi. I don't think <mark class="lang-hl c" title="Contraction — we have">we've</mark> met yet. <mark class="lang-hl c" title="Contraction — I am">I'm</mark> Charlie Chan and <mark class="lang-hl c" title="Contraction — I am">I'm</mark> from the marketing department. <mark class="lang-hl c" title="Contraction — It is">It's</mark> nice to meet you.'</div>
+            </div>
+          </td>
+          <td>
+            <div class="utterance">
+              <button class="btn-icon" onclick="playSingle('audio/p01.mp3', this)" data-src="audio/p01.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button>
+              <div class="ut-text" data-cn="嗨，查理。我是梁柏基，来自中心运营部。我也很高兴认识你。你觉得这次活动怎么样？">'Hi Charlie. <mark class="lang-hl c" title="Contraction — I am">I'm</mark> Parker Leung from the centre operations department. <mark class="lang-hl c" title="Contraction — It is">It's</mark> nice to meet you too. <mark class="lang-hl s" title="Small talk — follow-up Wh- question">How are you enjoying the event so far?</mark>'</div>
+            </div>
+          </td>
+          <td class="c-fn">
+            <div class="fn-label">Greeting · Introducing yourself · Making small talk (follow-up question)</div>
+            <div class="lang-tags">
+              <span class="exp-item c">Contractions — "I'm" (I am) / "we've" (we have) / "It's" (It is)</span>
+              <span class="exp-item s">Follow-up question (Wh-) — "How are you enjoying the event so far?"</span>
+            </div>
+          </td>
         </tr>
-        <tr class="section-label"><td colspan="2" data-cn="2. 就以下话题进行闲聊：a. 你最喜欢的本地餐厅">2. Make small talk on the following topics:  a. Your favourite local restaurants</td></tr>
+        <tr class="section-label"><td colspan="3" data-cn="2. 就以下话题进行闲聊：a. 你最喜欢的本地餐厅">2. Make small talk on the following topics:  a. Your favourite local restaurants</td></tr>
         <tr>
-          <td><div class="utterance"><button class="btn-icon" onclick="playSingle('audio/c02.mp3', this)" data-src="audio/c02.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button><span data-cn="我玩得很开心，谢谢。能和其他部门的同事聚一聚总是很好的。这里的食物很不错，是吧？说到食物，你有最喜欢的本地餐厅吗？">'I'm having a good time, thanks. It's always nice to catch up with colleagues from other departments. The food here at the event is pretty good, isn't it? Speaking of food, do you have any favourite local restaurants you like to visit?'</span></div></td>
-          <td><div class="utterance"><button class="btn-icon" onclick="playSingle('audio/p02.mp3', this)" data-src="audio/p02.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button><span data-cn="有的！我很喜欢我们办公室附近的「绿碗」。他们的素菜非常好吃。你呢？">'Yes, I do! I really enjoy going to "The Green Bowl" near our office. Their vegetarian dishes are amazing. How about you?'</span></div></td>
+          <td>
+            <div class="utterance">
+              <button class="btn-icon" onclick="playSingle('audio/c02.mp3', this)" data-src="audio/c02.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button>
+              <div class="ut-text" data-cn="我玩得很开心，谢谢。能和其他部门的同事聚一聚总是很好的。这里的食物很不错，是吧？说到食物，你有最喜欢的本地餐厅吗？">'<mark class="lang-hl c" title="Contraction — I am">I'm</mark> having a good time, thanks. <mark class="lang-hl c" title="Contraction — It is">It's</mark> always nice to catch up with colleagues from other departments. The food here at the event is pretty good, <mark class="lang-hl s" title="Small talk — tag question">isn't it?</mark> <mark class="lang-hl h" title="Cohesive device — introducing a new topic">Speaking of</mark> food, <mark class="lang-hl s" title="Small talk — follow-up yes/no question">do you have any favourite local restaurants you like to visit?</mark>'</div>
+            </div>
+          </td>
+          <td>
+            <div class="utterance">
+              <button class="btn-icon" onclick="playSingle('audio/p02.mp3', this)" data-src="audio/p02.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button>
+              <div class="ut-text" data-cn="有的！我很喜欢我们办公室附近的「绿碗」。他们的素菜非常好吃。你呢？">'<mark class="lang-hl s" title="Small talk — short answer">Yes, I do!</mark> I really enjoy going to "The Green Bowl" near our office. Their vegetarian dishes are <mark class="lang-hl o" title="Positive adjective — giving a good impression">amazing</mark>. <mark class="lang-hl s" title="Small talk — follow-up question">How about you?</mark>'</div>
+            </div>
+          </td>
+          <td class="c-fn">
+            <div class="fn-label">Responding to small talk · Giving positive comments · Asking follow-up questions</div>
+            <div class="lang-tags">
+              <span class="exp-item s">Short answer / echo — "Yes, I do!"</span>
+              <span class="exp-item o">Positive comments — "amazing"</span>
+              <span class="exp-item s">Tag question — "The food here is pretty good, isn't it?"</span>
+              <span class="exp-item s">Follow-up question (yes/no) — "Do you have any favourite…?"</span>
+              <span class="exp-item s">Follow-up question — "How about you?"</span>
+              <span class="exp-item h">Cohesive device — "Speaking of…"</span>
+            </div>
+          </td>
         </tr>
         <tr>
-          <td><div class="utterance"><button class="btn-icon" onclick="playSingle('audio/c03.mp3', this)" data-src="audio/c03.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button><span data-cn="哦，我喜欢中环的「点心 Delight」。他们的蒸饺是我吃过最好吃的。也许改天我们可以一起去。">'Oh, I love "Dim Sum Delight" in Central. Their steamed dumplings are the best I've ever had. Maybe we could go together sometime.'</span></div></td>
-          <td><div class="utterance"><button class="btn-icon" onclick="playSingle('audio/p03.mp3', this)" data-src="audio/p03.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button><span data-cn="听起来不错！我听说过那家店，但还没去过。那么，你们部门最近有什么新鲜事吗？">'That sounds great! I've heard good things about that place but haven't tried it yet. So, what's new in your department these days?'</span></div></td>
+          <td>
+            <div class="utterance">
+              <button class="btn-icon" onclick="playSingle('audio/c03.mp3', this)" data-src="audio/c03.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button>
+              <div class="ut-text" data-cn="哦，我喜欢中环的「点心 Delight」。他们的蒸饺是我吃过最好吃的。也许改天我们可以一起去。">'Oh, <mark class="lang-hl s" title="Small talk — expressing preferences">I love</mark> "Dim Sum Delight" in Central. Their steamed dumplings are the best <mark class="lang-hl t" title="Present perfect — personal experience">I've ever had</mark>. Maybe we <mark class="lang-hl m" title="Modal verb + bare infinitive — making a suggestion">could go</mark> together sometime.'</div>
+            </div>
+          </td>
+          <td>
+            <div class="utterance">
+              <button class="btn-icon" onclick="playSingle('audio/p03.mp3', this)" data-src="audio/p03.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button>
+              <div class="ut-text" data-cn="听起来不错！我听说过那家店，但还没去过。那么，你们部门最近有什么新鲜事吗？">'That sounds great! <mark class="lang-hl t" title="Present perfect — past experience relevant now">I've heard</mark> good things about that place but <mark class="lang-hl c" title="Contraction — have not">haven't</mark> tried it yet. <mark class="lang-hl h" title="Cohesive device — moving to a new topic">So</mark>, <mark class="lang-hl s" title="Small talk — follow-up Wh- question">what's new in your department these days?</mark>'</div>
+            </div>
+          </td>
+          <td class="c-fn">
+            <div class="fn-label">Sharing preferences · Making a suggestion · Echoing · Bringing up a new topic</div>
+            <div class="lang-tags">
+              <span class="exp-item s">Echo words — "That sounds great!"</span>
+              <span class="exp-item s">Follow-up question (Wh-) — "What's new in your department…?"</span>
+              <span class="exp-item t">Present perfect (experience) — "I've ever had" / "I've heard"</span>
+              <span class="exp-item c">Contraction — "haven't" (have not)</span>
+              <span class="exp-item h">Cohesive device — "So, …"</span>
+              <span class="exp-item m">Modal verb (suggestion) — "could go"</span>
+            </div>
+          </td>
         </tr>
-        <tr class="section-label"><td colspan="2" data-cn="b. 你部门负责的项目 — 推广流动医疗诊所">b. A project run by your department — Project: Promoting mobile health clinics</td></tr>
+        <tr class="section-label"><td colspan="3" data-cn="b. 你部门负责的项目 — 推广流动医疗诊所">b. A project run by your department — Project: Promoting mobile health clinics</td></tr>
         <tr>
-          <td><div class="utterance"><button class="btn-icon" onclick="playSingle('audio/c04.mp3', this)" data-src="audio/c04.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button><span data-cn="哦，我们一直在忙着推广流动医疗诊所。我们发起了社交媒体宣传活动，并与本地社区团体合作来推广。反响很不错。">'Oh, we've been busy promoting our mobile health clinics. We've launched a social media campaign and partnered with local community groups to spread the word. The response has been encouraging.'</span></div></td>
-          <td><div class="utterance"><button class="btn-icon" onclick="playSingle('audio/p04.mp3', this)" data-src="audio/p04.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button><span data-cn="真不错！未来几个月你们对流动诊所有什么计划？">'That's impressive! What are your plans for the mobile clinics in the next few months?'</span></div></td>
+          <td>
+            <div class="utterance">
+              <button class="btn-icon" onclick="playSingle('audio/c04.mp3', this)" data-src="audio/c04.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button>
+              <div class="ut-text" data-cn="哦，我们一直在忙着推广流动医疗诊所。我们发起了社交媒体宣传活动，并与本地社区团体合作来推广。反响很不错。">'Oh, <mark class="lang-hl t" title="Present perfect continuous — ongoing work">we've been busy promoting</mark> our mobile health clinics. <mark class="lang-hl t" title="Present perfect — work completed so far">We've launched</mark> a social media campaign and partnered with local community groups <mark class="lang-hl h" title="Giving purpose — to + verb">to spread the word</mark>. The response <mark class="lang-hl t" title="Present perfect — result up to now">has been</mark> encouraging.'</div>
+            </div>
+          </td>
+          <td>
+            <div class="utterance">
+              <button class="btn-icon" onclick="playSingle('audio/p04.mp3', this)" data-src="audio/p04.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button>
+              <div class="ut-text" data-cn="真不错！未来几个月你们对流动诊所有什么计划？">'<mark class="lang-hl c" title="Contraction — That is">That's</mark> impressive! <mark class="lang-hl s" title="Small talk — asking about future plans">What are your plans for the mobile clinics in the next few months?</mark>'</div>
+            </div>
+          </td>
+          <td class="c-fn">
+            <div class="fn-label">Talking about work projects — what has been done so far · Asking about future plans</div>
+            <div class="lang-tags">
+              <span class="exp-item t">Present perfect (task completed) — "We've launched…"</span>
+              <span class="exp-item t">Present perfect continuous — "we've been busy promoting…"</span>
+              <span class="exp-item h">Giving purpose — "to spread the word"</span>
+              <span class="exp-item c">Contraction — "That's" (That is)</span>
+              <span class="exp-item s">Follow-up question (Wh-) — "What are your plans…?"</span>
+            </div>
+          </td>
         </tr>
         <tr>
-          <td><div class="utterance"><button class="btn-icon" onclick="playSingle('audio/c05.mp3', this)" data-src="audio/c05.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button><span data-cn="我们计划将诊所扩展到更多地区，并引入新的医疗服务。我们希望帮助更多需要医疗护理的人。">'We're planning to expand the clinics to more districts and introduce new health services. We hope to reach more people who need medical care.'</span></div></td>
-          <td><div class="utterance"><button class="btn-icon" onclick="playSingle('audio/p05.mp3', this)" data-src="audio/p05.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button><span data-cn="这是一项很好的举措。我相信这对社区会有很大的帮助。">'That's a great initiative. I think it will really benefit the community.'</span></div></td>
+          <td>
+            <div class="utterance">
+              <button class="btn-icon" onclick="playSingle('audio/c05.mp3', this)" data-src="audio/c05.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button>
+              <div class="ut-text" data-cn="我们计划将诊所扩展到更多地区，并引入新的医疗服务。我们希望帮助更多需要医疗护理的人。">'<mark class="lang-hl t" title="Present continuous — future plans">We're planning to expand</mark> the clinics to more districts and introduce new health services. <mark class="lang-hl t" title="Future intention">We hope to reach</mark> more people who need medical care.'</div>
+            </div>
+          </td>
+          <td>
+            <div class="utterance">
+              <button class="btn-icon" onclick="playSingle('audio/p05.mp3', this)" data-src="audio/p05.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button>
+              <div class="ut-text" data-cn="这是一项很好的举措。我相信这对社区会有很大的帮助。">'<mark class="lang-hl c" title="Contraction — That is">That's</mark> a great initiative. <mark class="lang-hl o" title="Expressing opinions — I think">I think</mark> it <mark class="lang-hl m" title="Modal verb + bare infinitive — future prediction">will really benefit</mark> the community.'</div>
+            </div>
+          </td>
+          <td class="c-fn">
+            <div class="fn-label">Talking about work projects — future plans · Giving positive comments · Expressing an opinion</div>
+            <div class="lang-tags">
+              <span class="exp-item t">Future tense / present continuous (plans) — "We're planning to expand…"</span>
+              <span class="exp-item t">Future intention — "We hope to reach…"</span>
+              <span class="exp-item o">Expressing opinions — "I think"</span>
+              <span class="exp-item m">Modal verb (prediction) — "will benefit"</span>
+              <span class="exp-item c">Contraction — "That's" (That is)</span>
+            </div>
+          </td>
         </tr>
         <tr>
-          <td><div class="utterance"><button class="btn-icon" onclick="playSingle('audio/c06.mp3', this)" data-src="audio/c06.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button><span data-cn="那你呢？也在忙新项目吗？">'So how about you? Busy with new projects, too?'</span></div></td>
-          <td><div class="utterance"><button class="btn-icon" onclick="playSingle('audio/p06.mp3', this)" data-src="audio/p06.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button><span data-cn="我们正在推出一套新的患者预约排期系统。这对我们来说是一个大项目。">'We're currently working on launching a new patient appointment scheduling system. It's been a big project for us.'</span></div></td>
+          <td>
+            <div class="utterance">
+              <button class="btn-icon" onclick="playSingle('audio/c06.mp3', this)" data-src="audio/c06.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button>
+              <div class="ut-text" data-cn="那你呢？也在忙新项目吗？">'So <mark class="lang-hl s" title="Small talk — follow-up question">how about you?</mark> Busy with new projects, too?'</div>
+            </div>
+          </td>
+          <td>
+            <div class="utterance">
+              <button class="btn-icon" onclick="playSingle('audio/p06.mp3', this)" data-src="audio/p06.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button>
+              <div class="ut-text" data-cn="我们正在推出一套新的患者预约排期系统。这对我们来说是一个大项目。">'<mark class="lang-hl t" title="Present continuous — work in progress">We're currently working</mark> on launching a new patient appointment scheduling system. <mark class="lang-hl t" title="Present perfect — state up to now">It's been</mark> a big project for us.'</div>
+            </div>
+          </td>
+          <td class="c-fn">
+            <div class="fn-label">Asking a follow-up question · Talking about work projects — work in progress</div>
+            <div class="lang-tags">
+              <span class="exp-item s">Follow-up question — "how about you?"</span>
+              <span class="exp-item t">Present continuous (task in progress) — "We're currently working…"</span>
+              <span class="exp-item t">Present perfect — "It's been" (It has been)</span>
+            </div>
+          </td>
         </tr>
         <tr>
-          <td><div class="utterance"><button class="btn-icon" onclick="playSingle('audio/c07.mp3', this)" data-src="audio/c07.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button><span data-cn="哦，那一定是一项大工程！我能想象要建立这样一个新系统需要多少规划和协调。到目前为止进展如何？">'Oh, that must be a big task! I can imagine how much planning and coordination goes into setting up a new system like that. How has the process been so far?'</span></div></td>
-          <td><div class="utterance"><button class="btn-icon" onclick="playSingle('audio/p07.mp3', this)" data-src="audio/p07.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button><span data-cn="我们已经完成了初步设计，并开始在一小部分患者中测试系统。到目前为止反馈都是正面的。我们计划在下个季度推广到所有中心。我们也在为员工准备培训材料，以确保过渡顺利。">'We've completed the initial design and started testing the system with a small group of patients. The feedback has been positive so far. We plan to roll it out to all our centres next quarter. We're also preparing training materials for staff to make the transition smooth.'</span></div></td>
+          <td>
+            <div class="utterance">
+              <button class="btn-icon" onclick="playSingle('audio/c07.mp3', this)" data-src="audio/c07.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button>
+              <div class="ut-text" data-cn="哦，那一定是一项大工程！我能想象要建立这样一个新系统需要多少规划和协调。到目前为止进展如何？">'Oh, that <mark class="lang-hl m" title="Modal verb + bare infinitive — logical deduction">must be</mark> a big task! <mark class="lang-hl m" title="Modal verb + bare infinitive — ability">I can imagine</mark> how much planning and coordination goes into setting up a new system like that. <mark class="lang-hl t" title="Present perfect — asking about progress">How has the process been</mark> so far?'</div>
+            </div>
+          </td>
+          <td>
+            <div class="utterance">
+              <button class="btn-icon" onclick="playSingle('audio/p07.mp3', this)" data-src="audio/p07.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button>
+              <div class="ut-text" data-cn="我们已经完成了初步设计，并开始在一小部分患者中测试系统。到目前为止反馈都是正面的。我们计划在下个季度推广到所有中心。我们也在为员工准备培训材料，以确保过渡顺利。">'<mark class="lang-hl t" title="Present perfect — work completed so far">We've completed</mark> the initial design and started testing the system with a small group of patients. The feedback has been positive <mark class="lang-hl t" title="Present perfect time marker">so far</mark>. <mark class="lang-hl t" title="Future plans — plan to">We plan to roll it out</mark> to all our centres next quarter. <mark class="lang-hl t" title="Present continuous — work in progress">We're also preparing</mark> training materials for staff <mark class="lang-hl h" title="Giving purpose — to + verb">to make the transition smooth</mark>.'</div>
+            </div>
+          </td>
+          <td class="c-fn">
+            <div class="fn-label">Showing empathy · Asking about progress · Talking about work projects — three tenses</div>
+            <div class="lang-tags">
+              <span class="exp-item t">Present perfect (task completed) — "We've completed… / so far"</span>
+              <span class="exp-item t">Future tense (work to complete) — "We plan to roll it out…"</span>
+              <span class="exp-item t">Present continuous (task in progress) — "We're also preparing…"</span>
+              <span class="exp-item m">Modal verbs — "must be" (deduction) / "can imagine" (ability)</span>
+              <span class="exp-item h">Giving purpose — "to make the transition smooth"</span>
+            </div>
+          </td>
         </tr>
-        <tr class="section-label"><td colspan="2" data-cn="3. 分享你对新公司政策的看法，并用理由支持你的观点">3. Share your opinions on a new company policy and support your views with reasons</td></tr>
+        <tr class="section-label"><td colspan="3" data-cn="3. 分享你对新公司政策的看法，并用理由支持你的观点">3. Share your opinions on a new company policy and support your views with reasons</td></tr>
         <tr>
-          <td><div class="utterance"><button class="btn-icon" onclick="playSingle('audio/c08.mp3', this)" data-src="audio/c08.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button><span data-cn="听起来工作量很大，但也很有意义。说到新事物，你对公司新推出的专业发展政策有什么看法？">'Sounds like a lot of work, but very rewarding. Speaking of new things, what do you think about the new professional development policy our company introduced?'</span></div></td>
-          <td><div class="utterance"><button class="btn-icon" onclick="playSingle('audio/p08.mp3', this)" data-src="audio/p08.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button><span data-cn="我认为这是一个非常好的主意。提供免费在线课程和培训工作坊，显示公司关心我们的成长。">'I think it's a fantastic idea. Offering free online courses and training workshops shows the company cares about our growth.'</span></div></td>
+          <td>
+            <div class="utterance">
+              <button class="btn-icon" onclick="playSingle('audio/c08.mp3', this)" data-src="audio/c08.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button>
+              <div class="ut-text" data-cn="听起来工作量很大，但也很有意义。说到新事物，你对公司新推出的专业发展政策有什么看法？">'Sounds like a lot of work, but very rewarding. <mark class="lang-hl h" title="Cohesive device — introducing a related topic">Speaking of</mark> new things, <mark class="lang-hl o" title="Starting a conversation — What do you think about…?">what do you think about the new professional development policy</mark> our company introduced?'</div>
+            </div>
+          </td>
+          <td>
+            <div class="utterance">
+              <button class="btn-icon" onclick="playSingle('audio/p08.mp3', this)" data-src="audio/p08.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button>
+              <div class="ut-text" data-cn="我认为这是一个非常好的主意。提供免费在线课程和培训工作坊，显示公司关心我们的成长。">'<mark class="lang-hl o" title="Expressing opinions — I think">I think</mark> <mark class="lang-hl c" title="Contraction — It is">it's</mark> a <mark class="lang-hl o" title="Positive adjective">fantastic</mark> idea. Offering free online courses and training workshops shows the company cares about our growth.'</div>
+            </div>
+          </td>
+          <td class="c-fn">
+            <div class="fn-label">Showing empathy · Starting a conversation about a company policy · Expressing an opinion (positive)</div>
+            <div class="lang-tags">
+              <span class="exp-item o">Starting a conversation — "What do you think about…?"</span>
+              <span class="exp-item o">Expressing opinions — "I think"</span>
+              <span class="exp-item o">Positive comments — "fantastic"</span>
+              <span class="exp-item h">Cohesive device — "Speaking of…"</span>
+              <span class="exp-item c">Contraction — "it's" (it is)</span>
+            </div>
+          </td>
         </tr>
         <tr>
-          <td><div class="utterance"><button class="btn-icon" onclick="playSingle('audio/c09.mp3', this)" data-src="audio/c09.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button><span data-cn="确实如此。这对我们学习新技能是一个很好的机会。我打算报读一门数字营销课程。">'Definitely. It's a good opportunity for us to learn new skills. I'm planning to take a course on digital marketing.'</span></div></td>
-          <td><div class="utterance"><button class="btn-icon" onclick="playSingle('audio/p09.mp3', this)" data-src="audio/p09.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button><span data-cn="那对你的职位来说非常合适。你觉得这个政策有什么缺点吗？">'That would be perfect for your role. Do you see any drawbacks to the new policy?'</span></div></td>
+          <td>
+            <div class="utterance">
+              <button class="btn-icon" onclick="playSingle('audio/c09.mp3', this)" data-src="audio/c09.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button>
+              <div class="ut-text" data-cn="确实如此。这对我们学习新技能是一个很好的机会。我打算报读一门数字营销课程。">'<mark class="lang-hl o" title="Expressing agreement">Definitely</mark>. <mark class="lang-hl c" title="Contraction — It is">It's</mark> a good opportunity for us to learn new skills. <mark class="lang-hl t" title="Present continuous — future plans">I'm planning to take</mark> a course on digital marketing.'</div>
+            </div>
+          </td>
+          <td>
+            <div class="utterance">
+              <button class="btn-icon" onclick="playSingle('audio/p09.mp3', this)" data-src="audio/p09.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button>
+              <div class="ut-text" data-cn="那对你的职位来说非常合适。你觉得这个政策有什么缺点吗？">'That <mark class="lang-hl m" title="Modal verb + bare infinitive — hypothetical">would be</mark> perfect for your role. <mark class="lang-hl o" title="Inviting opinions">Do you see any drawbacks to the new policy?</mark>'</div>
+            </div>
+          </td>
+          <td class="c-fn">
+            <div class="fn-label">Expressing agreement · Sharing personal plans · Inviting opinions on drawbacks</div>
+            <div class="lang-tags">
+              <span class="exp-item o">Expressing agreement — "Definitely"</span>
+              <span class="exp-item t">Future / present continuous (plans) — "I'm planning to take…"</span>
+              <span class="exp-item m">Modal verb (hypothetical) — "would be"</span>
+              <span class="exp-item o">Inviting opinions — "Do you see any drawbacks…?"</span>
+              <span class="exp-item c">Contraction — "It's" (It is)</span>
+            </div>
+          </td>
         </tr>
         <tr>
-          <td><div class="utterance"><button class="btn-icon" onclick="playSingle('audio/c10.mp3', this)" data-src="audio/c10.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button><span data-cn="一个担忧是，有些员工即使已经很忙了，可能会感到有压力去参加课程。平衡工作和学习是很重要的。">'One concern is that some employees might feel pressured to take courses even if they're already busy. It's important to balance work and learning.'</span></div></td>
-          <td><div class="utterance"><button class="btn-icon" onclick="playSingle('audio/p10.mp3', this)" data-src="audio/p10.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button><span data-cn="没错，时间管理可能是一个挑战。但总的来说，我认为好处大于坏处。这可以帮助我们保持竞争力。">'True, time management could be a challenge. But overall, I think the benefits outweigh the drawbacks. It can help us stay competitive.'</span></div></td>
+          <td>
+            <div class="utterance">
+              <button class="btn-icon" onclick="playSingle('audio/c10.mp3', this)" data-src="audio/c10.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button>
+              <div class="ut-text" data-cn="一个担忧是，有些员工即使已经很忙了，可能会感到有压力去参加课程。平衡工作和学习是很重要的。">'One concern is that some employees <mark class="lang-hl m" title="Modal verb + bare infinitive — possibility">might feel</mark> pressured to take courses even if <mark class="lang-hl c" title="Contraction — they are">they're</mark> already busy. <mark class="lang-hl o" title="Giving reasons">It's important to balance</mark> work and learning.'</div>
+            </div>
+          </td>
+          <td>
+            <div class="utterance">
+              <button class="btn-icon" onclick="playSingle('audio/p10.mp3', this)" data-src="audio/p10.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button>
+              <div class="ut-text" data-cn="没错，时间管理可能是一个挑战。但总的来说，我认为好处大于坏处。这可以帮助我们保持竞争力。">'True, time management <mark class="lang-hl m" title="Modal verb + bare infinitive — possibility">could be</mark> a challenge. <mark class="lang-hl h" title="Cohesive device — contrast / summary">But overall</mark>, <mark class="lang-hl o" title="Expressing opinions — I think">I think</mark> the benefits outweigh the drawbacks. <mark class="lang-hl m" title="Modal verb + bare infinitive — possibility">It can help</mark> us stay competitive.'</div>
+            </div>
+          </td>
+          <td class="c-fn">
+            <div class="fn-label">Stating a drawback · Explaining reasons · Expressing overall opinion</div>
+            <div class="lang-tags">
+              <span class="exp-item m">Modal verbs (possibility) — "might feel" / "could be" / "can help"</span>
+              <span class="exp-item o">Expressing opinions — "I think"</span>
+              <span class="exp-item h">Cohesive device — "But overall, …"</span>
+              <span class="exp-item c">Contraction — "they're" (they are)</span>
+            </div>
+          </td>
         </tr>
         <tr>
-          <td><div class="utterance"><button class="btn-icon" onclick="playSingle('audio/c11.mp3', this)" data-src="audio/c11.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button><span data-cn="完全同意。这也鼓励了持续改进的文化，这对员工和公司都有好处。">'Absolutely. It also encourages a culture of continuous improvement, which is good for both employees and the company.'</span></div></td>
-          <td><div class="utterance"><button class="btn-icon" onclick="playSingle('audio/p11.mp3', this)" data-src="audio/p11.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button><span data-cn="我同意！这可以促进公司内部的协作和创新，我很期待看到未来几个月的发展。">'I agree! It could lead to more collaboration and innovation within the company and I'm excited to see how things develop over the next few months.'</span></div></td>
+          <td>
+            <div class="utterance">
+              <button class="btn-icon" onclick="playSingle('audio/c11.mp3', this)" data-src="audio/c11.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button>
+              <div class="ut-text" data-cn="完全同意。这也鼓励了持续改进的文化，这对员工和公司都有好处。">'<mark class="lang-hl o" title="Expressing agreement">Absolutely</mark>. <mark class="lang-hl o" title="Positive verb — describing benefits">It also encourages</mark> a culture of continuous improvement, which is good for both employees and the company.'</div>
+            </div>
+          </td>
+          <td>
+            <div class="utterance">
+              <button class="btn-icon" onclick="playSingle('audio/p11.mp3', this)" data-src="audio/p11.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button>
+              <div class="ut-text" data-cn="我同意！这可以促进公司内部的协作和创新，我很期待看到未来几个月的发展。">'<mark class="lang-hl o" title="Expressing agreement">I agree</mark>! <mark class="lang-hl m" title="Modal verb + bare infinitive — possibility">It could lead to</mark> more collaboration and innovation within the company and <mark class="lang-hl c" title="Contraction — I am">I'm</mark> excited to see how things develop over the next few months.'</div>
+            </div>
+          </td>
+          <td class="c-fn">
+            <div class="fn-label">Expressing agreement · Elaborating on benefits</div>
+            <div class="lang-tags">
+              <span class="exp-item o">Agreement — "Absolutely"</span>
+              <span class="exp-item o">Positive verb — "It also encourages"</span>
+              <span class="exp-item o">Agreement — "I agree"</span>
+              <span class="exp-item m">Modal verb — "It could lead to" (possibility)</span>
+              <span class="exp-item c">Contraction — "I'm" (I am)</span>
+            </div>
+          </td>
         </tr>
         <tr>
-          <td><div class="utterance"><button class="btn-icon" onclick="playSingle('audio/c12.mp3', this)" data-src="audio/c12.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button><span data-cn="好了，柏基，和你聊天很愉快。我很高兴了解到你们部门的情况以及你对新政策的看法。">'Well, Parker, it's been great chatting with you. I've enjoyed learning more about your department and your thoughts on the new policy.'</span></div></td>
-          <td><div class="utterance"><button class="btn-icon" onclick="playSingle('audio/p12.mp3', this)" data-src="audio/p12.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button><span data-cn="我也很高兴，查理。交流想法和叙叙旧总是很好的。保持联系，别忘了我们的餐厅计划！">'Likewise, Charlie. It's always nice to exchange ideas and catch up. Let's keep in touch about those restaurant plans!'</span></div></td>
+          <td>
+            <div class="utterance">
+              <button class="btn-icon" onclick="playSingle('audio/c12.mp3', this)" data-src="audio/c12.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button>
+              <div class="ut-text" data-cn="好了，柏基，和你聊天很愉快。我很高兴了解到你们部门的情况以及你对新政策的看法。">'Well, Parker, <mark class="lang-hl t" title="Present perfect — It has been">it's been</mark> great chatting with you. <mark class="lang-hl t" title="Present perfect — experience">I've enjoyed</mark> learning more about your department and your thoughts on the new policy.'</div>
+            </div>
+          </td>
+          <td>
+            <div class="utterance">
+              <button class="btn-icon" onclick="playSingle('audio/p12.mp3', this)" data-src="audio/p12.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button>
+              <div class="ut-text" data-cn="我也很高兴，查理。交流想法和叙叙旧总是很好的。保持联系，别忘了我们的餐厅计划！">'<mark class="lang-hl s" title="Small talk — echoing a positive response">Likewise</mark>, Charlie. <mark class="lang-hl c" title="Contraction — It is">It's</mark> always nice to exchange ideas and catch up. <mark class="lang-hl c" title="Contraction — Let us">Let's</mark> keep in touch about those restaurant plans!'</div>
+            </div>
+          </td>
+<td class="c-fn">
+            <div class="fn-label">Wrapping up · Showing appreciation · Responding politely · Suggesting future contact</div>
+            <div class="lang-tags">
+              <span class="exp-item s">Echo words — "Likewise"</span>
+              <span class="exp-item t">Present perfect — "it's been" / "I've enjoyed"</span>
+              <span class="exp-item c">Contractions — "It's" (It is) / "Let's" (Let us)</span>
+              <span class="exp-item s">Ending politely — "Let's keep in touch."</span>
+            </div>
+          </td>
         </tr>
-        <tr class="section-label"><td colspan="2" data-cn="4. 礼貌地结束对话">4. End the conversation politely</td></tr>
+        <tr class="section-label"><td colspan="3" data-cn="4. 礼貌地结束对话">4. End the conversation politely</td></tr>
         <tr>
-          <td><div class="utterance"><button class="btn-icon" onclick="playSingle('audio/c13.mp3', this)" data-src="audio/c13.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button><span data-cn="当然！我们很快安排一次午餐吧。祝你在活动中玩得开心。">'Absolutely! Let's arrange a lunch soon. Enjoy the rest of the event.'</span></div></td>
-          <td><div class="utterance"><button class="btn-icon" onclick="playSingle('audio/p13.mp3', this)" data-src="audio/p13.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button><span data-cn="你也是，查理。保重，办公室见！">'You too, Charlie. Take care and see you at the office!'</span></div></td>
+          <td>
+            <div class="utterance">
+              <button class="btn-icon" onclick="playSingle('audio/c13.mp3', this)" data-src="audio/c13.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button>
+              <div class="ut-text" data-cn="当然！我们很快安排一次午餐吧。祝你在活动中玩得开心。">'<mark class="lang-hl o" title="Expressing agreement">Absolutely</mark>! <mark class="lang-hl c" title="Contraction — Let us">Let's</mark> arrange a lunch soon. Enjoy the rest of the event.'</div>
+            </div>
+          </td>
+          <td>
+            <div class="utterance">
+              <button class="btn-icon" onclick="playSingle('audio/p13.mp3', this)" data-src="audio/p13.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button>
+              <div class="ut-text" data-cn="你也是，查理。保重，办公室见！">'You too, Charlie. Take care and see you at the office!'</div>
+            </div>
+          </td>
+<td class="c-fn">
+            <div class="fn-label">Agreeing to keep in touch · Ending the conversation politely</div>
+            <div class="lang-tags">
+              <span class="exp-item o">Expressing agreement — "Absolutely"</span>
+              <span class="exp-item c">Contraction — "Let's" (Let us)</span>
+              <span class="exp-item s">Ending politely — "Take care and see you at the office!"</span>
+            </div>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -622,7 +1008,7 @@ table.dialogue tr.active-row td {
     <h1>Sample Conversation Video</h1>
     <p style="color:#666; margin-bottom:16px;">Watch the suggested conversation between Charlie and Parker.</p>
     <video controls width="100%" style="max-width:1000px; display:block; border-radius:8px; box-shadow:0 2px 12px rgba(0,0,0,0.15);">
-      <source src="video.mp4" type="video/mp4">
+      <source src="LAN3107_CA Practice 2 video_addheadings.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
   </div>
@@ -803,28 +1189,33 @@ let synth = window.speechSynthesis;
 let currentWordEl = null;
 
 function wrapWordsInEl(el) {
-  const text = el.textContent;
-  const words = text.split(/(\s+)/);
-  el.innerHTML = '';
-  words.forEach(w => {
-    if (w.trim() === '') {
-      el.appendChild(document.createTextNode(w));
-    } else {
-      const wordSpan = document.createElement('span');
-      wordSpan.className = 'word';
-      wordSpan.textContent = w;
-      wordSpan.addEventListener('click', function(e) {
-        e.stopPropagation();
-        speakWord(w.replace(/[^a-zA-Z'-]/g, ''), this);
-      });
-      el.appendChild(wordSpan);
-    }
+  const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+  const textNodes = [];
+  while (walker.nextNode()) textNodes.push(walker.currentNode);
+  textNodes.forEach(tn => {
+    const frag = document.createDocumentFragment();
+    const words = tn.textContent.split(/(\s+)/);
+    words.forEach(w => {
+      if (w.trim() === '') {
+        frag.appendChild(document.createTextNode(w));
+      } else {
+        const wordSpan = document.createElement('span');
+        wordSpan.className = 'word';
+        wordSpan.textContent = w;
+        wordSpan.addEventListener('click', function(e) {
+          e.stopPropagation();
+          speakWord(w.replace(/[^a-zA-Z'-]/g, ''), this);
+        });
+        frag.appendChild(wordSpan);
+      }
+    });
+    tn.parentNode.replaceChild(frag, tn);
   });
 }
 
 function initWordClick() {
-  // Tab 2 — dialogue utterances
-  document.querySelectorAll('#dialogueBody .utterance span').forEach(wrapWordsInEl);
+  // Tab 2 — dialogue utterances (highlighted marks are preserved)
+  document.querySelectorAll('#dialogueBody .ut-text').forEach(wrapWordsInEl);
   // Tab 1 — task text
   document.querySelectorAll('#tab-0 p, #tab-0 li, #tab-0 .task-box p, #tab-0 .task-box li')
     .forEach(el => {
