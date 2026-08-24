@@ -1,0 +1,44 @@
+1
+0:00:00,000 --> 0:00:07,639
+Hi. I don’t think we’ve met yet. I’m Charlie Chan and I’m from the marketing department. It’s nice to meet you.
+
+2
+0:00:07,639 --> 0:00:15,639
+Hi Charlie. I’m Parker Leung from the centre operations department. It’s nice to meet you too. How are you enjoying the event so far?
+
+3
+0:00:15,639 --> 0:00:23,639
+I’m having a good time, thanks. It’s always nice to catch up with colleagues from other departments. The food here at the event is pretty good, isn’t it?
+
+4
+0:00:23,639 --> 0:00:29,278
+Speaking of food, do you have any favourite local restaurants you like to visit?
+
+5
+0:00:29,139 --> 0:00:37,138
+Yes, I do! I really enjoy going to “The Green Bowl” near our office. Their vegetarian dishes are amazing. How about you?
+
+6
+0:00:37,138 --> 0:00:43,705
+Oh, I love “Dim Sum Delight” in Central. Their steamed dumplings are the best I’ve ever had. Maybe we could go together sometime.
+
+7
+0:00:43,705 --> 0:00:49,705
+That sounds great! I’ve heard good things about that place but haven’t tried it yet. So, what’s new in your department these days?
+
+8
+0:00:49,705 --> 0:00:58,105
+Oh, we’ve been busy promoting our mobile health clinics. We’ve launched a social media campaign and partnered with local community groups to spread the word.
+
+9
+0:00:58,105 --> 0:00:59,887
+The response has been encouraging.
+
+10
+0:00:59,887 --> 0:01:05,105
+That’s impressive! What are your plans for the mobile clinics in the next few months?
+
+11
+0:01:05,105 --> 0:01:11,805
+We’re planning to expand the clinics to more districts and introduce new health services. We hope to reach more people who need medical care.
+
