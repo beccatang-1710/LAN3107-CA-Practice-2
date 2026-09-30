@@ -111,7 +111,7 @@ body::after {
 }
 
 .page-header .presented-by {
-  font-size: 14px;
+  font-size: 12px;
   color: #9370db;
   font-style: italic;
   margin: 6px 0 2px;
@@ -197,6 +197,47 @@ h3 {
   margin-bottom: 6px;
 }
 
+.role-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  align-items: start;
+}
+
+.role-grid .task-section {
+  margin-bottom: 0;
+  background: #fcfaff;
+  border: 2px solid #9370db;
+  border-radius: 12px;
+  padding: 18px 22px;
+  box-shadow: 0 2px 8px rgba(147, 112, 219, 0.15);
+  position: relative;
+}
+
+.role-grid .task-section::before {
+  content: 'ROLE CARD';
+  position: absolute;
+  top: -11px;
+  left: 18px;
+  background: #9370db;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  padding: 2px 10px;
+  border-radius: 999px;
+}
+
+.role-grid .task-section h2 {
+  margin-top: 4px;
+  padding-bottom: 8px;
+  border-bottom: 2px dashed #d9c7f5;
+}
+
+@media (max-width: 860px) {
+  .role-grid { grid-template-columns: 1fr; }
+}
+
 .task-box {
   background: #f8f0ff;
   border-left: 4px solid #9370db;
@@ -211,6 +252,38 @@ h3 {
   font-weight: 700;
   color: #6a0dad;
   margin-bottom: 4px;
+}
+
+.modal-ref {
+  background: #f5f9ff;
+  border-left: 4px solid #3b82f6;
+  padding: 14px 18px;
+  margin: 16px 0;
+  border-radius: 0 8px 8px 0;
+}
+.modal-ref h3 {
+  margin: 0 0 8px;
+  font-size: 15px;
+  color: #1e40af;
+}
+.modal-ref .mrow {
+  display: flex;
+  gap: 8px;
+  font-size: 13px;
+  padding: 3px 0;
+}
+.modal-ref .mrow .cat {
+  font-weight: 700;
+  color: #1e3a8a;
+  min-width: 160px;
+}
+.modal-ref .mnote {
+  margin-top: 8px;
+  font-size: 12.5px;
+  color: #374151;
+  background: #eff6ff;
+  border-radius: 6px;
+  padding: 8px 10px;
 }
 
 .task-list-box {
@@ -412,6 +485,31 @@ table.dialogue tr.active-row td {
   border-bottom-style: solid;
 }
 
+.word.trace-now {
+  background: #ffe066;
+  border-bottom-color: #f59e0b;
+  border-radius: 3px;
+  box-shadow: 0 0 0 2px #ffe066, 0 3px 0 -1px #f59e0b;
+}
+
+.word.trace-done {
+  background: rgba(45, 212, 191, 0.22);
+  border-bottom-color: rgba(15, 118, 110, 0.55);
+}
+
+.trace-hint {
+  display: inline-block;
+  margin-left: auto;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(15, 118, 110, 0.1);
+  border: 1px dashed rgba(15, 118, 110, 0.5);
+  color: #0f766e;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
 .section-label td {
   background: #f0e8f8 !important;
   padding: 8px 14px !important;
@@ -462,6 +560,15 @@ table.dialogue tr.active-row td {
 .exp-item.t { background: #ccfbf1; color: #115e59; border: 1px solid #5eead4; }
 .exp-item.s { background: #f3e8ff; color: #6b21a8; border: 1px solid #d8b4fe; }
 .exp-item.o { background: #ffedd5; color: #9a3412; border: 1px solid #fdba74; }
+.exp-item.r { background: #ffe4e6; color: #be123c; border: 1px solid #fda4af; }
+.exp-item.l { background: #ecfccb; color: #3f6212; border: 1px solid #bef264; }
+.exp-item.g { background: #f1f5f9; color: #334155; border: 1px solid #cbd5e1; }
+.exp-item.i { background: #e0e7ff; color: #3730a3; border: 1px solid #a5b4fc; }
+
+.exp-note {
+  flex-basis: 100%;
+  width: 100%;
+}
 
 .lang-hl {
   cursor: help;
@@ -477,6 +584,10 @@ table.dialogue tr.active-row td {
 .lang-hl.t { background: #ccfbf1; color: #115e59; border-bottom: 2px solid #14b8a6; }
 .lang-hl.s { background: #f3e8ff; color: #6b21a8; border-bottom: 2px solid #a855f7; }
 .lang-hl.o { background: #ffedd5; color: #9a3412; border-bottom: 2px solid #f97316; }
+.lang-hl.r { background: #ffe4e6; color: #be123c; border-bottom: 2px solid #f43f5e; }
+.lang-hl.l { background: #ecfccb; color: #3f6212; border-bottom: 2px solid #84cc16; }
+.lang-hl.g { background: #f1f5f9; color: #334155; border-bottom: 2px solid #64748b; }
+.lang-hl.i { background: #e0e7ff; color: #3730a3; border-bottom: 2px solid #818cf8; }
 
 .legend {
   display: flex;
@@ -493,6 +604,10 @@ table.dialogue tr.active-row td {
 .chip.t { background: #ccfbf1; color: #115e59; border: 1px solid #5eead4; }
 .chip.s { background: #f3e8ff; color: #6b21a8; border: 1px solid #d8b4fe; }
 .chip.o { background: #ffedd5; color: #9a3412; border: 1px solid #fdba74; }
+.chip.r { background: #ffe4e6; color: #be123c; border: 1px solid #fda4af; }
+.chip.l { background: #ecfccb; color: #3f6212; border: 1px solid #bef264; }
+.chip.g { background: #f1f5f9; color: #334155; border: 1px solid #cbd5e1; }
+.chip.i { background: #e0e7ff; color: #3730a3; border: 1px solid #a5b4fc; }
 
 .cn-translation {
   display: none;
@@ -566,7 +681,7 @@ table.dialogue tr.active-row td {
 </div>
 
 <div class="page-header">
-  <h1 style="display: flex; align-items: center; justify-content: center; gap: 12px;">Essential Workplace Communication: Effective Oral Interaction (LAN3107) <img src="qr-code.png" alt="QR Code" style="width: 200px; height: 200px;"></h1>
+  <h1>Essential Workplace Communication: Effective Oral Interaction (LAN3107)</h1>
   <p>Unit 6 — CA Practice 2</p>
   <p class="presented-by">Presented by Rebecca Tang</p>
   <div class="cn-toggle-wrap">
@@ -585,6 +700,8 @@ table.dialogue tr.active-row td {
   </div>
 
   <div class="tab-content active" id="tab-0">
+
+    <div class="role-grid">
 
     <div class="task-section">
       <h2 data-cn="学生A">Student A</h2>
@@ -621,8 +738,6 @@ table.dialogue tr.active-row td {
       </div>
     </div>
 
-    <hr style="border:none;border-top:2px solid #e6d8f0;margin:30px 0;">
-
     <div class="task-section">
       <h2 data-cn="学生B">Student B</h2>
       <p class="task-label" data-cn="任务">Task</p>
@@ -658,6 +773,8 @@ table.dialogue tr.active-row td {
       </div>
     </div>
 
+    </div>
+
   </div>
 
   <div class="tab-content" id="tab-1">
@@ -672,6 +789,12 @@ table.dialogue tr.active-row td {
       <span class="chip t">Tense (present perfect / continuous / future)</span>
       <span class="chip s">Small talk &amp; follow-up questions</span>
       <span class="chip o">Opinions &amp; reasons</span>
+      <span class="chip r">Collocation</span>
+      <span class="chip l">Sentence structure (gerund subject)</span>
+      <span class="chip g">Relative clause ("which" reference)</span>
+      <span class="chip i">Spoken text / oral conversation</span>
+      <span class="trace-hint" data-cn="播放时，正在朗读的单词会逐字高亮（发音追踪）">▶ Pronunciation tracer — words light up as they are spoken</span>
+      <span class="trace-hint" data-cn="鼠标停留在任何单词上即可听发音">🔊 Hover a word to hear it</span>
     </div>
 
     <div class="controls-bar">
@@ -716,7 +839,7 @@ table.dialogue tr.active-row td {
           <td>
             <div class="utterance">
               <button class="btn-icon" onclick="playSingle('audio/c02.mp3', this)" data-src="audio/c02.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button>
-              <div class="ut-text" data-cn="我玩得很开心，谢谢。能和其他部门的同事聚一聚总是很好的。这里的食物很不错，是吧？说到食物，你有最喜欢的本地餐厅吗？">'<mark class="lang-hl c" title="Contraction — I am">I'm</mark> having a good time, thanks. <mark class="lang-hl c" title="Contraction — It is">It's</mark> always nice to catch up with colleagues from other departments. The food here at the event is pretty good, <mark class="lang-hl s" title="Small talk — tag question">isn't it?</mark> <mark class="lang-hl h" title="Cohesive device — introducing a new topic">Speaking of</mark> food, <mark class="lang-hl s" title="Small talk — follow-up yes/no question">do you have any favourite local restaurants you like to visit?</mark>'</div>
+              <div class="ut-text" data-cn="我玩得很开心，谢谢。能和其他部门的同事聚一聚总是很好的。这里的食物很不错，是吧？说到食物，你有最喜欢的本地餐厅吗？">'<mark class="lang-hl c" title="Contraction — I am">I'm</mark> having a good time, thanks. <mark class="lang-hl c" title="Contraction — It is">It's</mark> always nice to <mark class="lang-hl r" title="Collocation — verb + preposition: catch up">catch up</mark> with colleagues from other departments. The food here at the event is pretty good, <mark class="lang-hl s" title="Small talk — tag question">isn't it?</mark> <mark class="lang-hl h" title="Cohesive device — introducing a new topic">Speaking of</mark> food, <mark class="lang-hl s" title="Small talk — follow-up yes/no question">do you have any favourite local restaurants you like to visit?</mark>'</div>
             </div>
           </td>
           <td>
@@ -730,10 +853,12 @@ table.dialogue tr.active-row td {
             <div class="lang-tags">
               <span class="exp-item s">Short answer / echo — "Yes, I do!"</span>
               <span class="exp-item o">Positive comments — "amazing"</span>
+              <span class="exp-item o exp-note">Use adjectives to showcase his appreciation</span>
               <span class="exp-item s">Tag question — "The food here is pretty good, isn't it?"</span>
               <span class="exp-item s">Follow-up question (yes/no) — "Do you have any favourite…?"</span>
               <span class="exp-item s">Follow-up question — "How about you?"</span>
-              <span class="exp-item h">Cohesive device — "Speaking of…"</span>
+              <span class="exp-item h">Lead in/ Cohesive device for transition — "Speaking of…"</span>
+              <span class="exp-item r">Collocation — verb + preposition: "catch up"</span>
             </div>
           </td>
         </tr>
@@ -747,18 +872,19 @@ table.dialogue tr.active-row td {
           <td>
             <div class="utterance">
               <button class="btn-icon" onclick="playSingle('audio/p03.mp3', this)" data-src="audio/p03.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button>
-              <div class="ut-text" data-cn="听起来不错！我听说过那家店，但还没去过。那么，你们部门最近有什么新鲜事吗？">'That sounds great! <mark class="lang-hl t" title="Present perfect — past experience relevant now">I've heard</mark> good things about that place but <mark class="lang-hl c" title="Contraction — have not">haven't</mark> tried it yet. <mark class="lang-hl h" title="Cohesive device — moving to a new topic">So</mark>, <mark class="lang-hl s" title="Small talk — follow-up Wh- question">what's new in your department these days?</mark>'</div>
+              <div class="ut-text" data-cn="听起来不错！我听说过那家店，但还没去过。那么，你们部门最近有什么新鲜事吗？">'That sounds <mark class="lang-hl o" title="Positive adjective — giving a good impression">great</mark>! <mark class="lang-hl t" title="Present perfect — past experience relevant now">I've heard</mark> good things about that place but <mark class="lang-hl c" title="Contraction — have not">haven't</mark> tried it yet. <mark class="lang-hl h" title="Cohesive device — moving to a new topic">So</mark>, <mark class="lang-hl s" title="Small talk — follow-up Wh- question">what's new in your department these days?</mark>'</div>
             </div>
           </td>
           <td class="c-fn">
             <div class="fn-label">Sharing preferences · Making a suggestion · Echoing · Bringing up a new topic</div>
             <div class="lang-tags">
               <span class="exp-item s">Echo words — "That sounds great!"</span>
+              <span class="exp-item o exp-note">Use adjectives to showcase his appreciation</span>
               <span class="exp-item s">Follow-up question (Wh-) — "What's new in your department…?"</span>
               <span class="exp-item t">Present perfect (experience) — "I've ever had" / "I've heard"</span>
               <span class="exp-item c">Contraction — "haven't" (have not)</span>
               <span class="exp-item h">Cohesive device — "So, …"</span>
-              <span class="exp-item m">Modal verb (suggestion) — "could go"</span>
+              <span class="exp-item m">Modal verb (suggestion) — "could go", a possibility to achieve something (sthg.)</span>
             </div>
           </td>
         </tr>
@@ -767,7 +893,7 @@ table.dialogue tr.active-row td {
           <td>
             <div class="utterance">
               <button class="btn-icon" onclick="playSingle('audio/c04.mp3', this)" data-src="audio/c04.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button>
-              <div class="ut-text" data-cn="哦，我们一直在忙着推广流动医疗诊所。我们发起了社交媒体宣传活动，并与本地社区团体合作来推广。反响很不错。">'Oh, <mark class="lang-hl t" title="Present perfect continuous — ongoing work">we've been busy promoting</mark> our mobile health clinics. <mark class="lang-hl t" title="Present perfect — work completed so far">We've launched</mark> a social media campaign and partnered with local community groups <mark class="lang-hl h" title="Giving purpose — to + verb">to spread the word</mark>. The response <mark class="lang-hl t" title="Present perfect — result up to now">has been</mark> encouraging.'</div>
+              <div class="ut-text" data-cn="哦，我们一直在忙着推广流动医疗诊所。我们发起了社交媒体宣传活动，并与本地社区团体合作来推广。反响很不错。">'Oh, <mark class="lang-hl t" title="Present perfect continuous — ongoing work">we've been busy promoting</mark> our mobile health clinics. <mark class="lang-hl t" title="Present perfect — work completed so far">We've launched</mark> a social media campaign and partnered with local community groups <mark class="lang-hl h" title="Giving purpose — to + verb">to spread the word</mark>. The response <mark class="lang-hl t" title="Present perfect — result up to now">has been encouraging</mark>.'</div>
             </div>
           </td>
           <td>
@@ -780,8 +906,8 @@ table.dialogue tr.active-row td {
             <div class="fn-label">Talking about work projects — what has been done so far · Asking about future plans</div>
             <div class="lang-tags">
               <span class="exp-item t">Present perfect (task completed) — "We've launched…"</span>
-              <span class="exp-item t">Present perfect continuous — "we've been busy promoting…"</span>
-              <span class="exp-item h">Giving purpose — "to spread the word"</span>
+              <span class="exp-item t">Present perfect continuous (ongoing task/action) — "We've been busy promoting…"</span>
+              <span class="exp-item h">Giving purpose — "to spread the word", spoken text</span>
               <span class="exp-item c">Contraction — "That's" (That is)</span>
               <span class="exp-item s">Follow-up question (Wh-) — "What are your plans…?"</span>
             </div>
@@ -815,13 +941,13 @@ table.dialogue tr.active-row td {
           <td>
             <div class="utterance">
               <button class="btn-icon" onclick="playSingle('audio/c06.mp3', this)" data-src="audio/c06.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button>
-              <div class="ut-text" data-cn="那你呢？也在忙新项目吗？">'So <mark class="lang-hl s" title="Small talk — follow-up question">how about you?</mark> Busy with new projects, too?'</div>
+              <div class="ut-text" data-cn="那你呢？也在忙新项目吗？">'So <mark class="lang-hl s" title="Small talk — follow-up question">how about you?</mark> <mark class="lang-hl r" title="Collocation — adjective + preposition">Busy with</mark> new projects, too?'</div>
             </div>
           </td>
           <td>
             <div class="utterance">
               <button class="btn-icon" onclick="playSingle('audio/p06.mp3', this)" data-src="audio/p06.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button>
-              <div class="ut-text" data-cn="我们正在推出一套新的患者预约排期系统。这对我们来说是一个大项目。">'<mark class="lang-hl t" title="Present continuous — work in progress">We're currently working</mark> on launching a new patient appointment scheduling system. <mark class="lang-hl t" title="Present perfect — state up to now">It's been</mark> a big project for us.'</div>
+              <div class="ut-text" data-cn="我们正在推出一套新的患者预约排期系统。这对我们来说是一个大项目。">'<mark class="lang-hl t" title="Present continuous — work in progress">We're currently</mark> <mark class="lang-hl r" title="Collocation — verb + preposition">working on launching</mark> a new patient appointment <mark class="lang-hl r" title="Collocation — adjective + noun">scheduling system</mark>. <mark class="lang-hl t" title="Present perfect — state up to now">It's been</mark> a big project for us.'</div>
             </div>
           </td>
           <td class="c-fn">
@@ -830,6 +956,7 @@ table.dialogue tr.active-row td {
               <span class="exp-item s">Follow-up question — "how about you?"</span>
               <span class="exp-item t">Present continuous (task in progress) — "We're currently working…"</span>
               <span class="exp-item t">Present perfect — "It's been" (It has been)</span>
+              <span class="exp-item r">Collocation (1.adjective + preposition - "busy with working" 2. preposition + gerund — "on launching" (on + v-ing) 3. adjective + noun — "scheduling system")</span>
             </div>
           </td>
         </tr>
@@ -843,16 +970,17 @@ table.dialogue tr.active-row td {
           <td>
             <div class="utterance">
               <button class="btn-icon" onclick="playSingle('audio/p07.mp3', this)" data-src="audio/p07.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button>
-              <div class="ut-text" data-cn="我们已经完成了初步设计，并开始在一小部分患者中测试系统。到目前为止反馈都是正面的。我们计划在下个季度推广到所有中心。我们也在为员工准备培训材料，以确保过渡顺利。">'<mark class="lang-hl t" title="Present perfect — work completed so far">We've completed</mark> the initial design and started testing the system with a small group of patients. The feedback has been positive <mark class="lang-hl t" title="Present perfect time marker">so far</mark>. <mark class="lang-hl t" title="Future plans — plan to">We plan to roll it out</mark> to all our centres next quarter. <mark class="lang-hl t" title="Present continuous — work in progress">We're also preparing</mark> training materials for staff <mark class="lang-hl h" title="Giving purpose — to + verb">to make the transition smooth</mark>.'</div>
+              <div class="ut-text" data-cn="我们已经完成了初步设计，并开始在一小部分患者中测试系统。到目前为止反馈都是正面的。我们计划在下个季度推广到所有中心。我们也在为员工准备培训材料，以确保过渡顺利。">'<mark class="lang-hl t" title="Present perfect — work completed so far">We've completed</mark> the initial design and started testing the system with a small group of patients. The feedback has been positive <mark class="lang-hl t" title="Present perfect time marker">so far</mark>. <mark class="lang-hl t" title="Future plans — plan to">We plan to</mark> <mark class="lang-hl r" title="Collocation — verb + preposition: roll out">roll</mark> it <mark class="lang-hl r" title="Collocation — verb + preposition: roll out">out</mark> to all our centres next quarter. <mark class="lang-hl t" title="Present continuous — work in progress">We're also preparing</mark> training materials for staff <mark class="lang-hl h" title="Giving purpose — to + verb">to make the transition smooth</mark>.'</div>
             </div>
           </td>
           <td class="c-fn">
             <div class="fn-label">Showing empathy · Asking about progress · Talking about work projects — three tenses</div>
             <div class="lang-tags">
-              <span class="exp-item t">Present perfect (task completed) — "We've completed… / so far"</span>
+              <span class="exp-item t">Present perfect (task completed) — "We've completed…" (formal) / so far = up to now</span>
               <span class="exp-item t">Future tense (work to complete) — "We plan to roll it out…"</span>
+              <span class="exp-item r">Collocation — verb + preposition: "roll out"</span>
               <span class="exp-item t">Present continuous (task in progress) — "We're also preparing…"</span>
-              <span class="exp-item m">Modal verbs — "must be" (deduction) / "can imagine" (ability)</span>
+              <span class="exp-item m">Modal verbs — "must be" (deduction) / "can imagine" (ability), strong in tone</span>
               <span class="exp-item h">Giving purpose — "to make the transition smooth"</span>
             </div>
           </td>
@@ -862,23 +990,24 @@ table.dialogue tr.active-row td {
           <td>
             <div class="utterance">
               <button class="btn-icon" onclick="playSingle('audio/c08.mp3', this)" data-src="audio/c08.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button>
-              <div class="ut-text" data-cn="听起来工作量很大，但也很有意义。说到新事物，你对公司新推出的专业发展政策有什么看法？">'Sounds like a lot of work, but very rewarding. <mark class="lang-hl h" title="Cohesive device — introducing a related topic">Speaking of</mark> new things, <mark class="lang-hl o" title="Starting a conversation — What do you think about…?">what do you think about the new professional development policy</mark> our company introduced?'</div>
+              <div class="ut-text" data-cn="听起来工作量很大，但也很有意义。说到新事物，你对公司新推出的专业发展政策有什么看法？">'Sounds like a lot of work, but very rewarding. <mark class="lang-hl h" title="Cohesive device — introducing a related topic">Speaking of</mark> new things, <mark class="lang-hl o" title="Starting a conversation — What do you think about…?"><em>what do you think about</em> the new professional development policy</mark> our company introduced?'</div>
             </div>
           </td>
           <td>
             <div class="utterance">
               <button class="btn-icon" onclick="playSingle('audio/p08.mp3', this)" data-src="audio/p08.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button>
-              <div class="ut-text" data-cn="我认为这是一个非常好的主意。提供免费在线课程和培训工作坊，显示公司关心我们的成长。">'<mark class="lang-hl o" title="Expressing opinions — I think">I think</mark> <mark class="lang-hl c" title="Contraction — It is">it's</mark> a <mark class="lang-hl o" title="Positive adjective">fantastic</mark> idea. Offering free online courses and training workshops shows the company cares about our growth.'</div>
+              <div class="ut-text" data-cn="我认为这是一个非常好的主意。提供免费在线课程和培训工作坊，显示公司关心我们的成长。">'<mark class="lang-hl o" title="Expressing opinions — I think">I think</mark> <mark class="lang-hl c" title="Contraction — It is">it's</mark> a <mark class="lang-hl o" title="Positive adjective">fantastic</mark> idea. <mark class="lang-hl l" title="Sentence structure — gerund subject + verb + noun clause">Offering free online courses and training workshops</mark> shows the company cares about our growth.'</div>
             </div>
           </td>
           <td class="c-fn">
             <div class="fn-label">Showing empathy · Starting a conversation about a company policy · Expressing an opinion (positive)</div>
             <div class="lang-tags">
-              <span class="exp-item o">Starting a conversation — "What do you think about…?"</span>
+              <span class="exp-item o">Starting a conversation and <em>Inviting opinions</em> — "What do you think about…?"</span>
               <span class="exp-item o">Expressing opinions — "I think"</span>
-              <span class="exp-item o">Positive comments — "fantastic"</span>
-              <span class="exp-item h">Cohesive device — "Speaking of…"</span>
+              <span class="exp-item o">Using adjectives to showcase his view/ feeling/ comment — "fantastic"</span>
+              <span class="exp-item h">Lead in/ Cohesive device for transition — "Speaking of…"</span>
               <span class="exp-item c">Contraction — "it's" (it is)</span>
+              <span class="exp-item l">Sentence structure: Verb+ing/ Gerund [Subject noun phrase] + verb + object noun phrase/ noun clause — Offering free online courses and training workshops [Gerund/Subject noun] + shows [verb] + that… [object noun/ noun clause]</span>
             </div>
           </td>
         </tr>
@@ -892,16 +1021,17 @@ table.dialogue tr.active-row td {
           <td>
             <div class="utterance">
               <button class="btn-icon" onclick="playSingle('audio/p09.mp3', this)" data-src="audio/p09.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button>
-              <div class="ut-text" data-cn="那对你的职位来说非常合适。你觉得这个政策有什么缺点吗？">'That <mark class="lang-hl m" title="Modal verb + bare infinitive — hypothetical">would be</mark> perfect for your role. <mark class="lang-hl o" title="Inviting opinions">Do you see any drawbacks to the new policy?</mark>'</div>
+              <div class="ut-text" data-cn="那对你的职位来说非常合适。你觉得这个政策有什么缺点吗？">'That <mark class="lang-hl m" title="Modal verb + bare infinitive — hypothetical">would be</mark> perfect for your role. <mark class="lang-hl o" title="Inviting opinions">Do you see any <span class="lang-hl r" title="Collocation — noun + preposition: drawbacks to">drawbacks to</span> the new policy?</mark>'</div>
             </div>
           </td>
           <td class="c-fn">
             <div class="fn-label">Expressing agreement · Sharing personal plans · Inviting opinions on drawbacks</div>
             <div class="lang-tags">
-              <span class="exp-item o">Expressing agreement — "Definitely"</span>
-              <span class="exp-item t">Future / present continuous (plans) — "I'm planning to take…"</span>
+              <span class="exp-item o">Expressing agreement — "Definitely" (strong in tone)</span>
+              <span class="exp-item t">Future / present continuous (plans) — "I'm planning to take…" (very positive)</span>
               <span class="exp-item m">Modal verb (hypothetical) — "would be"</span>
               <span class="exp-item o">Inviting opinions — "Do you see any drawbacks…?"</span>
+              <span class="exp-item r">Collocation — noun + preposition: "drawbacks to"</span>
               <span class="exp-item c">Contraction — "It's" (It is)</span>
             </div>
           </td>
@@ -933,7 +1063,7 @@ table.dialogue tr.active-row td {
           <td>
             <div class="utterance">
               <button class="btn-icon" onclick="playSingle('audio/c11.mp3', this)" data-src="audio/c11.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button>
-              <div class="ut-text" data-cn="完全同意。这也鼓励了持续改进的文化，这对员工和公司都有好处。">'<mark class="lang-hl o" title="Expressing agreement">Absolutely</mark>. <mark class="lang-hl o" title="Positive verb — describing benefits">It also encourages</mark> a culture of continuous improvement, which is good for both employees and the company.'</div>
+              <div class="ut-text" data-cn="完全同意。这也鼓励了持续改进的文化，这对员工和公司都有好处。">'<mark class="lang-hl o" title="Expressing agreement">Absolutely</mark>. <mark class="lang-hl o" title="Positive verb — describing benefits">It also encourages</mark> a culture of <mark class="lang-hl g" title="Relative clause — &quot;which&quot; refers to continuous improvement"><strong>continuous improvement, which</strong></mark> is good for both employees and the company.'</div>
             </div>
           </td>
           <td>
@@ -945,11 +1075,12 @@ table.dialogue tr.active-row td {
           <td class="c-fn">
             <div class="fn-label">Expressing agreement · Elaborating on benefits</div>
             <div class="lang-tags">
-              <span class="exp-item o">Agreement — "Absolutely"</span>
+              <span class="exp-item o">Agreement — "Absolutely" (strong in tone)</span>
               <span class="exp-item o">Positive verb — "It also encourages"</span>
               <span class="exp-item o">Agreement — "I agree"</span>
               <span class="exp-item m">Modal verb — "It could lead to" (possibility)</span>
               <span class="exp-item c">Contraction — "I'm" (I am)</span>
+              <span class="exp-item g">"which" refers to "continuous improvement"</span>
             </div>
           </td>
         </tr>
@@ -963,16 +1094,17 @@ table.dialogue tr.active-row td {
           <td>
             <div class="utterance">
               <button class="btn-icon" onclick="playSingle('audio/p12.mp3', this)" data-src="audio/p12.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button>
-              <div class="ut-text" data-cn="我也很高兴，查理。交流想法和叙叙旧总是很好的。保持联系，别忘了我们的餐厅计划！">'<mark class="lang-hl s" title="Small talk — echoing a positive response">Likewise</mark>, Charlie. <mark class="lang-hl c" title="Contraction — It is">It's</mark> always nice to exchange ideas and catch up. <mark class="lang-hl c" title="Contraction — Let us">Let's</mark> keep in touch about those restaurant plans!'</div>
+              <div class="ut-text" data-cn="我也很高兴，查理。交流想法和叙叙旧总是很好的。保持联系，别忘了我们的餐厅计划！">'<mark class="lang-hl s" title="Small talk — echoing a positive response">Likewise</mark>, Charlie. <mark class="lang-hl c" title="Contraction — It is">It's</mark> always nice to exchange ideas and <mark class="lang-hl r" title="Collocation — verb + preposition: catch up">catch up</mark>. <mark class="lang-hl c" title="Contraction — Let us">Let's</mark> keep in touch about those restaurant plans!'</div>
             </div>
           </td>
 <td class="c-fn">
             <div class="fn-label">Wrapping up · Showing appreciation · Responding politely · Suggesting future contact</div>
             <div class="lang-tags">
-              <span class="exp-item s">Echo words — "Likewise"</span>
-              <span class="exp-item t">Present perfect — "it's been" / "I've enjoyed"</span>
+              <span class="exp-item s">Echo words — "Likewise" - same feeling</span>
+              <span class="exp-item t">Present perfect — "it's been" (it has been) / "I've enjoyed"</span>
               <span class="exp-item c">Contractions — "It's" (It is) / "Let's" (Let us)</span>
-              <span class="exp-item s">Ending politely — "Let's keep in touch."</span>
+              <span class="exp-item s">Ending politely — "Let's keep in touch." (Spoken text) for oral conversation</span>
+              <span class="exp-item r">Collocation — verb + preposition: "catch up"</span>
             </div>
           </td>
         </tr>
@@ -987,7 +1119,7 @@ table.dialogue tr.active-row td {
           <td>
             <div class="utterance">
               <button class="btn-icon" onclick="playSingle('audio/p13.mp3', this)" data-src="audio/p13.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button>
-              <div class="ut-text" data-cn="你也是，查理。保重，办公室见！">'You too, Charlie. Take care and see you at the office!'</div>
+              <div class="ut-text" data-cn="你也是，查理。保重，办公室见！">'You too, Charlie. <mark class="lang-hl i" title="Spoken text / oral conversation">Take care</mark> and see you at the office!'</div>
             </div>
           </td>
 <td class="c-fn">
@@ -996,11 +1128,27 @@ table.dialogue tr.active-row td {
               <span class="exp-item o">Expressing agreement — "Absolutely"</span>
               <span class="exp-item c">Contraction — "Let's" (Let us)</span>
               <span class="exp-item s">Ending politely — "Take care and see you at the office!"</span>
+              <span class="exp-item i">Spoken text/ oral conversation</span>
             </div>
           </td>
         </tr>
       </tbody>
     </table>
+
+    <div class="modal-ref">
+      <h3>Modal verbs</h3>
+      <div class="mrow"><span class="cat">Ability:</span><span>can, could</span></div>
+      <div class="mrow"><span class="cat">Possibility:</span><span>may, might</span></div>
+      <div class="mrow"><span class="cat">Permission:</span><span>Can, May</span></div>
+      <div class="mrow"><span class="cat">Obligation:</span><span>must, have to</span></div>
+      <div class="mrow"><span class="cat">Prohibition:</span><span>Can't, Mustn't</span></div>
+      <div class="mrow"><span class="cat">Offers:</span><span>Will, Would</span></div>
+      <div class="mrow"><span class="cat">Suggestions:</span><span>Shall, Should</span></div>
+      <div class="mrow"><span class="cat">Requests:</span><span>Could, Would</span></div>
+      <div class="mrow"><span class="cat">Future Possibility:</span><span>Will, Shall</span></div>
+      <div class="mrow"><span class="cat">Past Probability:</span><span>Could have, Would have</span></div>
+      <div class="mnote">+ action verb (bare infinitive) + object (noun clause), e.g. <em>They can effectively attract younger audiences.</em></div>
+    </div>
 
   </div>
 
@@ -1065,6 +1213,75 @@ function clearHighlight() {
   document.querySelectorAll('#dialogueBody tr').forEach(r => r.classList.remove('active-row'));
 }
 
+const trace = { words: [], starts: [], raf: null, audio: null, lastIdx: -1 };
+
+function stopTrace() {
+  if (trace.raf) cancelAnimationFrame(trace.raf);
+  trace.raf = null;
+  trace.words.forEach(w => w.classList.remove('trace-now', 'trace-done'));
+  trace.words = [];
+  trace.starts = [];
+  trace.audio = null;
+  trace.lastIdx = -1;
+}
+
+function startTrace(btn, audio) {
+  stopTrace();
+  const box = btn && btn.closest('.utterance');
+  if (!box) return;
+  let words = Array.from(box.querySelectorAll('span.word'));
+  if (!words.length) {
+    initWordClick();
+    words = Array.from(box.querySelectorAll('span.word'));
+  }
+  if (!words.length) return;
+
+  const weights = words.map(w => Math.max(1, w.textContent.trim().length) + 1.5);
+  const total = weights.reduce((a, b) => a + b, 0);
+  let acc = 0;
+  const starts = weights.map(w => {
+    const s = acc / total;
+    acc += w;
+    return s;
+  });
+
+  trace.words = words;
+  trace.starts = starts;
+  trace.audio = audio;
+  trace.lastIdx = -1;
+
+  const step = () => {
+    const a = trace.audio;
+    if (!a) { trace.raf = null; return; }
+    const dur = a.duration;
+    if (!a.paused && isFinite(dur) && dur > 0) {
+      const lead = Math.min(0.25, dur * 0.05);
+      const tail = Math.min(0.15, dur * 0.03);
+      const p = Math.max(0, Math.min(1, (a.currentTime - lead) / Math.max(0.1, dur - lead - tail)));
+      let idx = 0;
+      for (let i = 0; i < trace.starts.length; i++) {
+        if (p >= trace.starts[i]) idx = i;
+      }
+      if (p >= 1) idx = trace.words.length - 1;
+      if (idx !== trace.lastIdx) {
+        const prev = trace.lastIdx >= 0 ? trace.words[trace.lastIdx] : null;
+        if (prev) {
+          prev.classList.remove('trace-now');
+          prev.classList.add('trace-done');
+        }
+        const cur = trace.words[idx];
+        if (cur) {
+          cur.classList.remove('trace-done');
+          cur.classList.add('trace-now');
+        }
+        trace.lastIdx = idx;
+      }
+    }
+    trace.raf = requestAnimationFrame(step);
+  };
+  trace.raf = requestAnimationFrame(step);
+}
+
 function playSingle(src, btn) {
   if (isPlayingAll) stopAll();
 
@@ -1072,6 +1289,7 @@ function playSingle(src, btn) {
     currentAudio.pause();
     if (currentBtn && currentBtn !== btn) resetBtn(currentBtn);
     if (currentBtn === btn) {
+      stopTrace();
       currentAudio = null;
       currentBtn = null;
       return;
@@ -1083,8 +1301,10 @@ function playSingle(src, btn) {
   currentBtn = btn;
   setBtnPause(btn);
   currentAudio.play();
+  startTrace(btn, currentAudio);
 
   currentAudio.addEventListener('ended', function() {
+    stopTrace();
     resetBtn(btn);
     currentAudio = null;
     currentBtn = null;
@@ -1121,6 +1341,7 @@ function playNext() {
   const rows = document.querySelectorAll('#dialogueBody tr');
   const rowIdx = Math.floor(playlistIdx / 2);
   highlightRow(rowIdx);
+  const btn = document.querySelectorAll('#dialogueBody .btn-icon')[playlistIdx];
 
   if (currentAudio) {
     currentAudio.pause();
@@ -1131,8 +1352,10 @@ function playNext() {
   currentAudio.playbackRate = getSpeed();
   currentBtn = null;
   currentAudio.play();
+  startTrace(btn, currentAudio);
 
   currentAudio.addEventListener('ended', function() {
+    stopTrace();
     playlistIdx++;
     if (isPlayingAll && playlistIdx < playlist.length) {
       playNext();
@@ -1153,6 +1376,7 @@ function pauseAll() {
 
 function stopAll() {
   isPlayingAll = false;
+  stopTrace();
   if (currentAudio) {
     currentAudio.pause();
     currentAudio = null;
@@ -1187,8 +1411,34 @@ function initTranslations() {
 // Word pronunciation
 let synth = window.speechSynthesis;
 let currentWordEl = null;
+let hoverWordTimer = null;
+let speakSeq = 0;
+let cachedVoice = null;
+
+function pickVoice() {
+  if (cachedVoice) return cachedVoice;
+  const voices = synth.getVoices().filter(v => v.lang && v.lang.startsWith('en'));
+  if (!voices.length) return null;
+  const natural = /natural|neural|enhanced|premium|siri|google|ava|andrew|sonia|libby|ryan|kate|serena|moira|fiona/i;
+  let best = null;
+  let bestScore = -1;
+  voices.forEach(v => {
+    let score = 0;
+    if (natural.test(v.name)) score += 10;
+    if (v.lang === 'en-GB') score += 3;
+    if (v.localService) score += 1;
+    if (score > bestScore) {
+      bestScore = score;
+      best = v;
+    }
+  });
+  cachedVoice = best;
+  return best;
+}
 
 function wrapWordsInEl(el) {
+  if (el.dataset.wordsDone) return;
+  el.dataset.wordsDone = '1';
   const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
   const textNodes = [];
   while (walker.nextNode()) textNodes.push(walker.currentNode);
@@ -1202,10 +1452,21 @@ function wrapWordsInEl(el) {
         const wordSpan = document.createElement('span');
         wordSpan.className = 'word';
         wordSpan.textContent = w;
+        const spoken = w.replace(/[^a-zA-Z'-]/g, '');
         wordSpan.addEventListener('click', function(e) {
           e.stopPropagation();
-          speakWord(w.replace(/[^a-zA-Z'-]/g, ''), this);
+          speakWord(spoken, this);
         });
+        if (el.closest('#dialogueBody')) {
+          wordSpan.addEventListener('mouseenter', function() {
+            if (!spoken) return;
+            clearTimeout(hoverWordTimer);
+            hoverWordTimer = setTimeout(() => speakWord(spoken, wordSpan, true), 200);
+          });
+          wordSpan.addEventListener('mouseleave', function() {
+            clearTimeout(hoverWordTimer);
+          });
+        }
         frag.appendChild(wordSpan);
       }
     });
@@ -1231,42 +1492,49 @@ function initWordClick() {
     });
 }
 
-function speakWord(word, el) {
-  if (!word) return;
-  if (synth.speaking) {
-    synth.cancel();
-    if (currentWordEl) {
-      currentWordEl.classList.remove('speaking');
-    }
-    if (currentWordEl === el) {
-      currentWordEl = null;
-      return;
-    }
-  }
-  if (currentWordEl) {
-    currentWordEl.classList.remove('speaking');
-  }
+function speakWord(word, el, isHover) {
+  if (!word || !el) return;
+  if (typeof window.SpeechSynthesisUtterance === 'undefined') return;
+
+  const wasSame = currentWordEl === el;
+  const active = !!(synth.speaking || synth.pending);
+  if (active) synth.cancel();
+  if (currentWordEl) currentWordEl.classList.remove('speaking');
+  currentWordEl = null;
+
+  if (!isHover && wasSame && active) return;
+
+  const seq = ++speakSeq;
   el.classList.add('speaking');
   currentWordEl = el;
-  const utter = new SpeechSynthesisUtterance(word);
-  utter.rate = 0.85;
-  utter.pitch = 1;
-  const voices = synth.getVoices();
-  const ukVoice = voices.find(v => v.lang.startsWith('en-GB'));
-  if (ukVoice) utter.voice = ukVoice;
-  utter.onend = function() {
-    el.classList.remove('speaking');
-    currentWordEl = null;
+
+  const go = function() {
+    if (seq !== speakSeq) {
+      el.classList.remove('speaking');
+      if (currentWordEl === el) currentWordEl = null;
+      return;
+    }
+    const utter = new SpeechSynthesisUtterance(word);
+    utter.rate = 0.85;
+    utter.pitch = 1;
+    const voice = pickVoice();
+    if (voice) utter.voice = voice;
+    const finish = function() {
+      if (seq !== speakSeq) return;
+      el.classList.remove('speaking');
+      if (currentWordEl === el) currentWordEl = null;
+    };
+    utter.onend = finish;
+    utter.onerror = finish;
+    synth.speak(utter);
   };
-  utter.onerror = function() {
-    el.classList.remove('speaking');
-    currentWordEl = null;
-  };
-  synth.speak(utter);
+
+  if (active) setTimeout(go, 70); else go();
 }
 
 document.addEventListener('DOMContentLoaded', function() {
   initTranslations();
+  synth.addEventListener('voiceschanged', () => { cachedVoice = null; });
   if (synth.getVoices().length) {
     initWordClick();
   } else {
