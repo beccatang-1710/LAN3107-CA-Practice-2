@@ -564,6 +564,7 @@ table.dialogue tr.active-row td {
 .exp-item.l { background: #ecfccb; color: #3f6212; border: 1px solid #bef264; }
 .exp-item.g { background: #f1f5f9; color: #334155; border: 1px solid #cbd5e1; }
 .exp-item.i { background: #e0e7ff; color: #3730a3; border: 1px solid #a5b4fc; }
+.exp-item.p { background: #fce7f3; color: #9d174d; border: 1px solid #f9a8d4; }
 
 .exp-note {
   flex-basis: 100%;
@@ -588,6 +589,7 @@ table.dialogue tr.active-row td {
 .lang-hl.l { background: #ecfccb; color: #3f6212; border-bottom: 2px solid #84cc16; }
 .lang-hl.g { background: #f1f5f9; color: #334155; border-bottom: 2px solid #64748b; }
 .lang-hl.i { background: #e0e7ff; color: #3730a3; border-bottom: 2px solid #818cf8; }
+.lang-hl.p { background: #fce7f3; color: #9d174d; border-bottom: 2px solid #ec4899; }
 
 .legend {
   display: flex;
@@ -608,6 +610,7 @@ table.dialogue tr.active-row td {
 .chip.l { background: #ecfccb; color: #3f6212; border: 1px solid #bef264; }
 .chip.g { background: #f1f5f9; color: #334155; border: 1px solid #cbd5e1; }
 .chip.i { background: #e0e7ff; color: #3730a3; border: 1px solid #a5b4fc; }
+.chip.p { background: #fce7f3; color: #9d174d; border: 1px solid #f9a8d4; }
 
 .cn-translation {
   display: none;
@@ -780,7 +783,7 @@ table.dialogue tr.active-row td {
   <div class="tab-content" id="tab-1">
 
     <h1 data-cn="参考回答">Possible Response</h1>
-    <p style="color:#666; margin-bottom:16px;" data-cn="学生A（陈查理）与学生B（梁柏基）的建议对话。右栏「斜体蓝字」列明每轮对话的沟通功能；「彩色标签」指出并解释语言的使用（回应词、正面评价、跟进问题等）。">Suggested conversation between Student A (Charlie) and Student B (Parker). The right-hand column shows the <strong>communicative functions</strong> of each exchange (in <em>italic blue</em>) and <strong>coloured tags</strong> that point out the words/phrases used (echo words, positive comments, follow-up questions, etc.).</p>
+    <p style="color:#666; margin-bottom:16px;" data-cn="学生A（陈查理）与学生B（梁柏基）的建议对话。右栏「斜体蓝字」列明每轮对话的沟通功能；「彩色标签」指出并解释语言的使用（回应词、正面评价、跟进问题、短语动词等）。">Suggested conversation between Student A (Charlie) and Student B (Parker). The right-hand column shows the <strong>communicative functions</strong> of each exchange (in <em>italic blue</em>) and <strong>coloured tags</strong> that point out the words/phrases used (echo words, positive comments, follow-up questions, phrasal verbs, etc.).</p>
     <div class="legend">
       <span class="lbl" data-cn="高亮颜色图例">Highlight colour key</span>
       <span class="chip c">Contraction</span>
@@ -793,6 +796,7 @@ table.dialogue tr.active-row td {
       <span class="chip l">Sentence structure (gerund subject)</span>
       <span class="chip g">Relative clause ("which" reference)</span>
       <span class="chip i">Spoken text / oral conversation</span>
+      <span class="chip p">Phrasal verb (roll out / work on / catch up)</span>
       <span class="trace-hint" data-cn="播放时，正在朗读的单词会逐字高亮（发音追踪）">▶ Pronunciation tracer — words light up as they are spoken</span>
       <span class="trace-hint" data-cn="鼠标停留在任何单词上即可听发音">🔊 Hover a word to hear it</span>
     </div>
@@ -839,7 +843,7 @@ table.dialogue tr.active-row td {
           <td>
             <div class="utterance">
               <button class="btn-icon" onclick="playSingle('audio/c02.mp3', this)" data-src="audio/c02.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button>
-              <div class="ut-text" data-cn="我玩得很开心，谢谢。能和其他部门的同事聚一聚总是很好的。这里的食物很不错，是吧？说到食物，你有最喜欢的本地餐厅吗？">'<mark class="lang-hl c" title="Contraction — I am">I'm</mark> having a good time, thanks. <mark class="lang-hl c" title="Contraction — It is">It's</mark> always nice to <mark class="lang-hl r" title="Collocation — verb + preposition: catch up">catch up</mark> with colleagues from other departments. The food here at the event is pretty good, <mark class="lang-hl s" title="Small talk — tag question">isn't it?</mark> <mark class="lang-hl h" title="Cohesive device — introducing a new topic">Speaking of</mark> food, <mark class="lang-hl s" title="Small talk — follow-up yes/no question">do you have any favourite local restaurants you like to visit?</mark>'</div>
+              <div class="ut-text" data-cn="我玩得很开心，谢谢。能和其他部门的同事聚一聚总是很好的。这里的食物很不错，是吧？说到食物，你有最喜欢的本地餐厅吗？">'<mark class="lang-hl c" title="Contraction — I am">I'm</mark> having a good time, thanks. <mark class="lang-hl c" title="Contraction — It is">It's</mark> always nice to <mark class="lang-hl p" title="Phrasal verb — catch up (reach the same level)">catch up</mark> with colleagues from other departments. The food here at the event is pretty good, <mark class="lang-hl s" title="Small talk — tag question">isn't it?</mark> <mark class="lang-hl h" title="Cohesive device — introducing a new topic">Speaking of</mark> food, <mark class="lang-hl s" title="Small talk — follow-up yes/no question">do you have any favourite local restaurants you like to visit?</mark>'</div>
             </div>
           </td>
           <td>
@@ -858,7 +862,7 @@ table.dialogue tr.active-row td {
               <span class="exp-item s">Follow-up question (yes/no) — "Do you have any favourite…?"</span>
               <span class="exp-item s">Follow-up question — "How about you?"</span>
               <span class="exp-item h">Lead in/ Cohesive device for transition — "Speaking of…"</span>
-              <span class="exp-item r">Collocation — verb + preposition: "catch up"</span>
+              <span class="exp-item p">Phrasal verb — "catch up" (reach the same level)</span>
             </div>
           </td>
         </tr>
@@ -947,7 +951,7 @@ table.dialogue tr.active-row td {
           <td>
             <div class="utterance">
               <button class="btn-icon" onclick="playSingle('audio/p06.mp3', this)" data-src="audio/p06.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button>
-              <div class="ut-text" data-cn="我们正在推出一套新的患者预约排期系统。这对我们来说是一个大项目。">'<mark class="lang-hl t" title="Present continuous — work in progress">We're currently</mark> <mark class="lang-hl r" title="Collocation — verb + preposition">working on launching</mark> a new patient appointment <mark class="lang-hl r" title="Collocation — adjective + noun">scheduling system</mark>. <mark class="lang-hl t" title="Present perfect — state up to now">It's been</mark> a big project for us.'</div>
+              <div class="ut-text" data-cn="我们正在推出一套新的患者预约排期系统。这对我们来说是一个大项目。">'<mark class="lang-hl t" title="Present continuous — work in progress">We're currently</mark> <mark class="lang-hl p" title="Phrasal verb — work on (spend time improving/ building)">working on</mark> <mark class="lang-hl r" title="Collocation — verb + noun: launch[ing] a … system">launching</mark> a new patient appointment <mark class="lang-hl r" title="Collocation — adjective + noun">scheduling system</mark>. <mark class="lang-hl t" title="Present perfect — state up to now">It's been</mark> a big project for us.'</div>
             </div>
           </td>
           <td class="c-fn">
@@ -956,7 +960,8 @@ table.dialogue tr.active-row td {
               <span class="exp-item s">Follow-up question — "how about you?"</span>
               <span class="exp-item t">Present continuous (task in progress) — "We're currently working…"</span>
               <span class="exp-item t">Present perfect — "It's been" (It has been)</span>
-              <span class="exp-item r">Collocation (1.adjective + preposition - "busy with"; 2. verb + preposition - "work(ing] on" ; 3. adjective + noun — "scheduling system")</span>
+              <span class="exp-item r">Collocation (1.adjective + preposition - "busy with"; 2. verb + noun - "launch[ing] a… system" ; 3. adjective + noun — "scheduling system")</span>
+              <span class="exp-item p">Phrasal verb — "work on" (spend time improving/ building)</span>
             </div>
           </td>
         </tr>
@@ -970,7 +975,7 @@ table.dialogue tr.active-row td {
           <td>
             <div class="utterance">
               <button class="btn-icon" onclick="playSingle('audio/p07.mp3', this)" data-src="audio/p07.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button>
-              <div class="ut-text" data-cn="我们已经完成了初步设计，并开始在一小部分患者中测试系统。到目前为止反馈都是正面的。我们计划在下个季度推广到所有中心。我们也在为员工准备培训材料，以确保过渡顺利。">'<mark class="lang-hl t" title="Present perfect — work completed so far">We've completed</mark> the initial design and started testing the system with a small group of patients. The feedback has been positive <mark class="lang-hl t" title="Present perfect time marker">so far</mark>. <mark class="lang-hl t" title="Future plans — plan to">We plan to</mark> <mark class="lang-hl r" title="Collocation — verb + preposition: roll out">roll</mark> it <mark class="lang-hl r" title="Collocation — verb + preposition: roll out">out</mark> to all our centres next quarter. <mark class="lang-hl t" title="Present continuous — work in progress">We're also preparing</mark> training materials for staff <mark class="lang-hl h" title="Giving purpose — to + verb">to make the transition smooth</mark>.'</div>
+              <div class="ut-text" data-cn="我们已经完成了初步设计，并开始在一小部分患者中测试系统。到目前为止反馈都是正面的。我们计划在下个季度推广到所有中心。我们也在为员工准备培训材料，以确保过渡顺利。">'<mark class="lang-hl t" title="Present perfect — work completed so far">We've completed</mark> the initial design and started testing the system with a small group of patients. The feedback has been positive <mark class="lang-hl t" title="Present perfect time marker">so far</mark>. <mark class="lang-hl t" title="Future plans — plan to">We plan to</mark> <mark class="lang-hl p" title="Phrasal verb — roll out (launch/ introduce)">roll</mark> it <mark class="lang-hl p" title="Phrasal verb — roll out (launch/ introduce)">out</mark> to all our centres next quarter. <mark class="lang-hl t" title="Present continuous — work in progress">We're also preparing</mark> training materials for staff <mark class="lang-hl h" title="Giving purpose — to + verb">to make the transition smooth</mark>.'</div>
             </div>
           </td>
           <td class="c-fn">
@@ -978,7 +983,7 @@ table.dialogue tr.active-row td {
             <div class="lang-tags">
               <span class="exp-item t">Present perfect (task completed) — "We've completed…" (formal) / so far = up to now</span>
               <span class="exp-item t">Future tense (work to complete) — "We plan to roll it out…"</span>
-              <span class="exp-item r">Collocation — verb + preposition: "roll out"</span>
+              <span class="exp-item p">Phrasal verb — "roll out" (launch/ introduce)</span>
               <span class="exp-item t">Present continuous (task in progress) — "We're also preparing…"</span>
               <span class="exp-item m">Modal verbs — "must be" (deduction) / "can imagine" (ability), strong in tone</span>
               <span class="exp-item h">Giving purpose — "to make the transition smooth"</span>
@@ -1094,7 +1099,7 @@ table.dialogue tr.active-row td {
           <td>
             <div class="utterance">
               <button class="btn-icon" onclick="playSingle('audio/p12.mp3', this)" data-src="audio/p12.mp3"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button>
-              <div class="ut-text" data-cn="我也很高兴，查理。交流想法和叙叙旧总是很好的。保持联系，别忘了我们的餐厅计划！">'<mark class="lang-hl s" title="Small talk — echoing a positive response">Likewise</mark>, Charlie. <mark class="lang-hl c" title="Contraction — It is">It's</mark> always nice to exchange ideas and <mark class="lang-hl r" title="Collocation — verb + preposition: catch up">catch up</mark>. <mark class="lang-hl c" title="Contraction — Let us">Let's</mark> keep in touch about those restaurant plans!'</div>
+              <div class="ut-text" data-cn="我也很高兴，查理。交流想法和叙叙旧总是很好的。保持联系，别忘了我们的餐厅计划！">'<mark class="lang-hl s" title="Small talk — echoing a positive response">Likewise</mark>, Charlie. <mark class="lang-hl c" title="Contraction — It is">It's</mark> always nice to exchange ideas and <mark class="lang-hl p" title="Phrasal verb — catch up (reach the same level)">catch up</mark>. <mark class="lang-hl c" title="Contraction — Let us">Let's</mark> keep in touch about those restaurant plans!'</div>
             </div>
           </td>
 <td class="c-fn">
@@ -1104,7 +1109,7 @@ table.dialogue tr.active-row td {
               <span class="exp-item t">Present perfect — "it's been" (it has been) / "I've enjoyed"</span>
               <span class="exp-item c">Contractions — "It's" (It is) / "Let's" (Let us)</span>
               <span class="exp-item s">Ending politely — "Let's keep in touch." (Spoken text) for oral conversation</span>
-              <span class="exp-item r">Collocation — verb + preposition: "catch up"</span>
+              <span class="exp-item p">Phrasal verb — "catch up" (reach the same level)</span>
             </div>
           </td>
         </tr>
